@@ -1,0 +1,36 @@
+-- Clean just in case yk
+DROP DATABASE IF EXISTS COP4331;
+
+-- Create DB
+CREATE DATABASE COP4331;
+USE COP4331;
+
+-- Users Table
+CREATE TABLE Users (
+	UserId INT NOT NULL AUTO_INCREMENT,
+	FirstName VARCHAR(50) NOT NULL DEFAULT '',
+	LastName  VARCHAR(50) NOT NULL DEFAULT '',
+	Login     VARCHAR(50) NOT NULL DEFAULT '',
+	Password  VARCHAR(50) NOT NULL DEFAULT '',
+	PRIMARY KEY (UserId),
+	UNIQUE KEY (Login)
+) ENGINE=InnoDB;
+
+-- Contacts Table (Data is stored in ContactId user)
+CREATE TABLE Contacts (
+	ContactId INT NOT NULL AUTO_INCREMENT,
+	OwnerId   INT NOT NULL,
+	FirstName VARCHAR(50) NOT NULL DEFAULT '',
+	LastName  VARCHAR(50) NOT NULL DEFAULT '',
+	Phone VARCHAR(50) NOT NULL DEFAULT '',
+	Email  VARCHAR(50) NOT NULL DEFAULT '',
+
+	PRIMARY KEY (ContactId),
+
+	CONSTRAINT fk_contacts_owner
+	FOREIGN KEY (OwnerId) REFERENCES Users(UserId)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE
+
+) ENGINE=InnoDB;
+
