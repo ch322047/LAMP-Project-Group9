@@ -18,11 +18,14 @@
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);*/
 
+	//read JSON and turn into array
 	$inData = getRequestInfo();
-	
+
+	//pull fields from array or assign empty string
 	$login = $inData["login"] ?? "";
 	$password = $inData["password"] ?? "";
 
+	//connect to database and check if failed
 	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "COP4331"); 	
 	if( $conn->connect_error )
 	{
@@ -31,6 +34,7 @@
 	}
 	else
 	{
+		//prep sql query and check if failed
 		$stmt = $conn->prepare("SELECT UserId,FirstName,LastName, Password FROM Users WHERE Login=?");
 		if (!$stmt)
 		{
@@ -38,11 +42,13 @@
 			exit();
 		}
 
+		//bind actual values to placeholders
 		$stmt->bind_param("s", $login);
 		$stmt->execute();
 		$stmt->store_result();
 		$stmt->bind_result($id, $firstName, $lastName, $hash);
 
+		//verify password and return info if login exists, else return error
 		if($stmt->fetch())
 		{
 			if( password_verify($password, $hash))
@@ -67,6 +73,7 @@
 	
 	function getRequestInfo()
 	{
+		//convert JSON to php array
 		return json_decode(file_get_contents('php://input'), true);
 	}
 
