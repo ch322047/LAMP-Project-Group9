@@ -59,23 +59,23 @@ function doLogin()
 }
 
 function doRegister(){
-	//clearing these values 
+	//clearing these values and initialzing global variables
 	userId = 0;
 	firstName = "";
 	lastName = "";
 	
-	//gets the text typed into these fields
-	let firstName = document.getElementById("registerFirstName").value;
-	let lastName = document.getElementById("registerLastName").value;
-	let login = document.getElementById("loginName").value;
-	let password = document.getElementById("loginPassword").value;
+	//gets the text typed into these fields for the local variables
+	let fName = document.getElementById("registerFirstName").value;
+	let lName = document.getElementById("registerLastName").value;
+	let login = document.getElementById("registerUsername").value;
+	let password = document.getElementById("registerPassword").value;
 //	var hash = md5( password );
 	
 	//clears any old login failed messages
-	document.getElementById("loginResult").innerHTML = "";
+	document.getElementById("registerResult").innerHTML = "";
 
 	//create the data to send to the server into a JSON string
-	let tmp = {firstName:firstName,lastName:lastName,login:login,password:password};
+	let tmp = {firstName:fName,lastName:lName,login:login,password:password};
 //	var tmp = {login:login,password:hash};
 	let jsonPayload = JSON.stringify( tmp );
 	
