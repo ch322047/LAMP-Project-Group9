@@ -113,7 +113,7 @@ function doRegister(){
 				saveCookie();
 	
 				//redirect to next screen
-				window.location.href = "index.html";
+				window.location.href = "color.html";
 			}
 		};
 		xhr.send(jsonPayload);
