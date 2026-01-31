@@ -58,6 +58,74 @@ function doLogin()
 
 }
 
+function doRegister(){
+	//clearing these values 
+	userId = 0;
+	firstName = "";
+	lastName = "";
+	
+	//gets the text typed into these fields
+	let firstName = document.getElementById("registerFirstName").value;
+	let lastName = document.getElementById("registerLastName").value;
+	let login = document.getElementById("loginName").value;
+	let password = document.getElementById("loginPassword").value;
+//	var hash = md5( password );
+	
+	//clears any old login failed messages
+	document.getElementById("loginResult").innerHTML = "";
+
+	//create the data to send to the server into a JSON string
+	let tmp = {firstName:firstName,lastName:lastName,login:login,password:password};
+//	var tmp = {login:login,password:hash};
+	let jsonPayload = JSON.stringify( tmp );
+	
+	//builds the REGISTER URL
+	let url = urlBase + '/Register.' + extension;
+
+	//creating the HTTP POST request to the Register.php
+	let xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		//Listening for server response
+		xhr.onreadystatechange = function() 
+		{
+			// 4 means request finished, 200 means request was successful
+			if (this.readyState == 4 && this.status == 200) 
+			{
+				//parse server response
+				let jsonObject = JSON.parse( xhr.responseText );
+				userId = jsonObject.id;
+		
+				//checking if register/sign up failed
+				if( userId < 1 )
+				{		
+					document.getElementById("loginResult").innerHTML = "Unable to register/sign up";
+					return;
+				}
+		
+				//saving user info
+				firstName = jsonObject.firstName;
+				lastName = jsonObject.lastName;
+
+				//saving it to cookies
+				saveCookie();
+	
+				//redirect to next screen
+				window.location.href = "index.html";
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	//error handling
+	catch(err)
+	{
+		document.getElementById("loginResult").innerHTML = err.message;
+	}
+
+}
+
 function saveCookie()
 {
 	let minutes = 20;
