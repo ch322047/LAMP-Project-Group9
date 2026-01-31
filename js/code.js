@@ -101,7 +101,7 @@ function doRegister(){
 				//checking if register/sign up failed
 				if( userId < 1 )
 				{		
-					document.getElementById("loginResult").innerHTML = "Unable to register/sign up";
+					document.getElementById("registerResult").innerHTML = "Unable to register/sign up";
 					return;
 				}
 		
@@ -121,7 +121,7 @@ function doRegister(){
 	//error handling
 	catch(err)
 	{
-		document.getElementById("loginResult").innerHTML = err.message;
+		document.getElementById("registerResult").innerHTML = err.message;
 	}
 
 }
