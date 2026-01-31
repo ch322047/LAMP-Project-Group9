@@ -72,7 +72,7 @@ function doRegister(){
 //	var hash = md5( password );
 	
 	//clears any old login failed messages
-	document.getElementById("registerResult").innerHTML = "";
+	document.getElementById("registerResult").innerHTML = "Registering...";
 
 	//create the data to send to the server into a JSON string
 	let tmp = {firstName:fName,lastName:lName,login:login,password:password};
@@ -92,8 +92,13 @@ function doRegister(){
 		xhr.onreadystatechange = function() 
 		{
 			// 4 means request finished, 200 means request was successful
-			if (this.readyState == 4 && this.status == 200) 
+			if (this.readyState == 4)
 			{
+				if(this.status !=200){
+					document.getElementById("registerResult").innerHTML = "Server error: " + this.status;
+					return;
+				}
+				
 				//parse server response
 				let jsonObject = JSON.parse( xhr.responseText );
 				userId = jsonObject.id;
@@ -101,7 +106,7 @@ function doRegister(){
 				//checking if register/sign up failed
 				if( userId < 1 )
 				{		
-					document.getElementById("registerResult").innerHTML = "Unable to register/sign up";
+					document.getElementById("registerResult").innerHTML = jsonObject.error || "Unable to register/sign up";
 					return;
 				}
 		
