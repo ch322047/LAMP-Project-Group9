@@ -100,7 +100,7 @@ function doRegister(){
 				}
 				
 				//parse server response
-				let jsonObject = JSON.parse( xhr.responseText );
+				let jsonObject = JSON.parse( this.responseText );
 				userId = jsonObject.id;
 		
 				//checking if register/sign up failed
