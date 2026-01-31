@@ -20,8 +20,8 @@
 
 	//read JSON and turn into array
 	$inData = getRequestInfo();
-	
-	//pull fields from array or empty sring
+
+	//pull fields from array or assign empty string
 	$login = $inData["login"] ?? "";
 	$password = $inData["password"] ?? "";
 
@@ -34,7 +34,7 @@
 	}
 	else
 	{
-		//prepare sql query and check if failed
+		//prep sql query and check if failed
 		$stmt = $conn->prepare("SELECT UserId,FirstName,LastName, Password FROM Users WHERE Login=?");
 		if (!$stmt)
 		{

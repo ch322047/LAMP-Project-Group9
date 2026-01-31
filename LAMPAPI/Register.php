@@ -15,21 +15,20 @@
     of the concepts.
     */
 
-    /* For testing only:
-    ini_set('display_errors', 1);
+    /*ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);*/
 
-    //read JSON and turn it into php array
+	//read JSON and turn it into php array	
 	$inData = getRequestInfo();
-	
-    //pull fields out of array or assingn empty string
+
+	//pull fields out of array or assign empty string
 	$firstName = $inData["firstName"] ?? "";
 	$lastName = $inData["lastName"] ?? "";
     $login = $inData["login"] ?? "";
     $password = $inData["password"] ?? "";
 
-    //connect to mysql
+	//connect to mysql
 	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "COP4331"); 
 
 	if( $conn->connect_error ) //throw error if database not connected
@@ -48,29 +47,28 @@
         }
 
         //add new user
-        $hash = password_hash($password, PASSWORD_DEFAULT); //hash password
+        $hash = password_hash($password, PASSWORD_DEFAULT);
 
-        //prepare insert statement with placeholders
+		//prepare insert statement with placeholders
         $stmt = $conn->prepare("INSERT INTO Users (FirstName, LastName, Login, Password) VALUES (?,?,?, ?)");
-
-        if(!$stmt)//check if prepare failed
+        if(!$stmt) //check if prepare failed
         {
             returnWithError($conn->error);
             $conn->close();
             exit();
         }
-        
-        //bind actual values with placeholders 
+
+		//bind actual values with placeholders
         $stmt->bind_param("ssss", $firstName, $lastName, $login, $hash);
         
-        if($stmt->execute())//execute the insert
+        if($stmt->execute()) //execute insert
         {
-            $newId = $conn->insert_id;//get the new user id
-            returnInfo($firstName, $lastName, $newId);//return JSON
+            $newId = $conn->insert_id; //get the new user id
+            returnInfo($firstName, $lastName, $newId); //return JSON
 
         }else
-        {
-            //if execute failed, return error
+		{
+			//if execute failed, return error
             returnWithError($stmt->error);
             exit();
 
@@ -82,7 +80,7 @@
 	
 	function getRequestInfo()
 	{
-        //reads raw JSON from the http and turns it into an array
+		//reads raw JSON from the http and turns it into an array
 		return json_decode(file_get_contents('php://input'), true);
 	}
 	
@@ -94,7 +92,7 @@
 
 	function sendResultAsJson($obj)
     {
-        //sends JSON with correct header
+		//sends JSON with correct header
         header("Content-type: application/json");
         echo $obj;
     }
