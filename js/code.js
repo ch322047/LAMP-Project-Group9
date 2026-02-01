@@ -183,10 +183,13 @@ function doLogout()
 
 function addContact()
 {
-	let newContact = document.getElementById("contactText").value;
+	let fName = document.getElementById("fNameText").value;
+	let lName = document.getElementById("lNameText").value;
+	let newPhone = document.getElementById("phoneText").value;
+	let newEmail = document.getElementById("emailText").value;
 	document.getElementById("contactAddResult").innerHTML = "";
 
-	let tmp = {contact:newContact,userId,userId};
+	let tmp = {FirstName:fName,LastName:lName,Phone:newPhone,Email:newEmail,userId:userId};
 	let jsonPayload = JSON.stringify( tmp );
 
 	let url = urlBase + '/AddContact.' + extension;
