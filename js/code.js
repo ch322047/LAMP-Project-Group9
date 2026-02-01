@@ -236,18 +236,24 @@ function searchContact()
 		{
 			if (this.readyState == 4 && this.status == 200) 
 			{
-				document.getElementById("contactSearchResult").innerHTML = "Contact(s) has been retrieved";
 				let jsonObject = JSON.parse( xhr.responseText );
-				
-				for( let i=0; i<jsonObject.results.length; i++ )
-				{
-					contactList += jsonObject.results[i];
-					if( i < jsonObject.results.length - 1 )
+
+				// handle search results
+				if (jsonObject.results !== 'undefined') {
+					// create list of search results on screen
+					for( let i=0; i<jsonObject.results.length; i++ )
 					{
-						contactList += "<br />\r\n";
+						contactList += jsonObject.results[i];
+						if( i < jsonObject.results.length - 1 )
+						{
+							contactList += "<br />\r\n";
+						}
 					}
+					document.getElementById("contactSearchResult").innerHTML = "Contact(s) has been retrieved";
+				} else {
+					// no matching results were found
+					document.getElementById("contactSearchResult").innerHTML = "No matching contacts found";
 				}
-				
 				document.getElementsByTagName("p")[0].innerHTML = contactList;
 			}
 		};
