@@ -239,7 +239,7 @@ function searchContact()
 				let jsonObject = JSON.parse( xhr.responseText );
 
 				// handle search results
-				if (jsonObject.results !== 'undefined') {
+				if (jsonObject.results != null) {
 					// create list of search results on screen
 					for( let i=0; i<jsonObject.results.length; i++ )
 					{
