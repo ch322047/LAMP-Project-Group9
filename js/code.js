@@ -266,3 +266,7 @@ function searchContact()
 	}
 	
 }
+
+function deleteContact(){
+	
+}
