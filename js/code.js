@@ -296,12 +296,9 @@ function searchContact()
 }
 
 
-function deleteContact(contactID){
+function deleteContact(ContactID){
 
-	if(!confirm("Do you want to delete this contact?"))
-		return;
-	
-	let tmp = {contactID:contactID, userId:userId};
+	let tmp = {ContactID:ContactID, OwnerId:userId};
 	let jsonPayload = JSON.stringify(tmp);
 
 	let url = urlBase + '/DeleteContact.' + extension;
