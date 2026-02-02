@@ -264,8 +264,23 @@ function searchContact()
 								<td>${entry.LastName}</td>
 								<td>${entry.Phone}</td>
 								<td>${entry.Email}</td>
-								<td><button type="button" id="deleteContactButton" class="buttons" onclick="deleteContact(entry.ContactID);"> Delete Contact </button></td>
-								<td><button type="button" id="editContactButton" class="buttons" onclick="editContact();"> Edit Contact </button></td>
+								<td>
+  									<button
+									type="button"
+    								class="buttons"    
+									onclick="deleteContact(${entry.ContactId})">
+									Delete Contact
+  									</button>
+								</td>
+
+								<td>
+  									<button
+									type="button"
+    								class="buttons"    
+									onclick="editContact(${entry.ContactId})">
+									Edit Contact
+  									</button>
+								</td>
 							</tr>
 						`;
 					}
@@ -296,9 +311,12 @@ function searchContact()
 }
 
 
-function deleteContact(ContactID){
+function deleteContact(ContactId){
 
-	let tmp = {ContactID:ContactID, OwnerId:userId};
+	if (!confirm("Are you sure you want to delete this contact?"))
+		return;
+
+	let tmp = {ContactId:ContactId, OwnerId:userId};
 	let jsonPayload = JSON.stringify(tmp);
 
 	let url = urlBase + '/DeleteContact.' + extension;
