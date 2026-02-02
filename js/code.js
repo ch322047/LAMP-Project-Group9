@@ -256,13 +256,15 @@ function searchContact()
 
 					for (let i = 0; i < jsonObject.results.length; i++)
 					{
+						let entry = jsonObject.results[i];
+
 						tableHTML += `
 							<tr>
-								<td>${jsonObject.results[i].FirstName}</td>
-								<td>${jsonObject.results[i].LastName}</td>
-								<td>${jsonObject.results[i].Phone}</td>
-								<td>${jsonObject.results[i].Email}</td>
-								<td><button type="button" id="deleteContactButton" class="buttons" onclick="deleteContact();"> Delete Contact </button></td>
+								<td>${entry.FirstName}</td>
+								<td>${entry.LastName}</td>
+								<td>${entry.Phone}</td>
+								<td>${entry.Email}</td>
+								<td><button type="button" id="deleteContactButton" class="buttons" onclick="deleteContact(entry.ContactID);"> Delete Contact </button></td>
 								<td><button type="button" id="editContactButton" class="buttons" onclick="editContact();"> Edit Contact </button></td>
 							</tr>
 						`;
@@ -294,6 +296,49 @@ function searchContact()
 }
 
 
-function deleteContact(){
+function deleteContact(contactID){
+
+	if(!confirm("Do you want to delete this contact?"))
+		return;
+	
+	let tmp = {contactID:contactID, userId:userId};
+	let jsonPayload = JSON.stringify(tmp);
+
+	let url = urlBase + '/DeleteContact.' + extension;
+
+	let xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+	try
+	{
+		xhr.onreadystatechange = function()
+		{
+			if (this.readyState == 4 && this.status == 200)
+			{
+				let jsonObject = JSON.parse(xhr.responseText);
+
+				if (jsonObject.error && jsonObject.error !== "")
+				{
+					alert("Delete failed: " + jsonObject.error);
+				}
+				else
+				{
+					// Re-run the search to refresh the table
+					searchContact();
+				}
+			}
+			else
+			{
+				alert("Error deleting contact");
+			}
+		};
+
+		xhr.send(jsonPayload);
+	}
+	catch (err)
+	{
+		document.getElementById("deleteContact").innerHTML = err.message;
+	}
 	
 }
