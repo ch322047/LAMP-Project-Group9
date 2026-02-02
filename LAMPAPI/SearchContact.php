@@ -34,7 +34,8 @@
 			$searchResults .= '{"FirstName" : "' . $row["FirstName"].'", 
 								"LastName" : "' . $row["LastName"].'", 
 								"Phone" : "' . $row["Phone"].'", 
-								"Email" : "' . $row["Email"].'"}';
+								"Email" : "' . $row["Email"].'"
+								"ContactId" : "' .$row["ContactId"].'}';
 		}
 		
 		if($searchCount == 0) // No search results
