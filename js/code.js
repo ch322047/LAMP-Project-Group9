@@ -249,6 +249,8 @@ function searchContact()
 								<th>Last Name</th>
 								<th>Phone</th>
 								<th>Email</th>
+								<th>Delete</th>
+								<th>Edit</th>
 							</tr>
 					`;
 
@@ -260,6 +262,8 @@ function searchContact()
 								<td>${jsonObject.results[i].LastName}</td>
 								<td>${jsonObject.results[i].Phone}</td>
 								<td>${jsonObject.results[i].Email}</td>
+								<td><button type="button" id="deleteContactButton" class="buttons" onclick="deleteContact();"> Delete Contact </button></td>
+								<td><button type="button" id="editContactButton" class="buttons" onclick="editContact();"> Edit Contact </button></td>
 							</tr>
 						`;
 					}
