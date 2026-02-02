@@ -219,53 +219,76 @@ function searchContact()
 {
 	let srch = document.getElementById("searchText").value;
 	document.getElementById("contactSearchResult").innerHTML = "";
-	
-	let contactList = "";
 
-	let tmp = {search:srch,userId:userId};
-	let jsonPayload = JSON.stringify( tmp );
+	let tableHTML = "";
+
+	let tmp = { search: srch, userId: userId };
+	let jsonPayload = JSON.stringify(tmp);
 
 	let url = urlBase + '/SearchContact.' + extension;
-	
+
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
 	try
 	{
-		xhr.onreadystatechange = function() 
+		xhr.onreadystatechange = function()
 		{
-			if (this.readyState == 4 && this.status == 200) 
+			if (this.readyState == 4 && this.status == 200)
 			{
-				let jsonObject = JSON.parse( xhr.responseText );
+				let jsonObject = JSON.parse(xhr.responseText);
 
-				// handle search results
-				if (jsonObject.results != null) {
-					// create list of search results on screen
-					for( let i=0; i<jsonObject.results.length; i++ )
+				if (jsonObject.results && jsonObject.results.length > 0)
+				{
+					// Start table
+					tableHTML = `
+						<table border="1" cellpadding="5" cellspacing="0">
+							<tr>
+								<th>First Name</th>
+								<th>Last Name</th>
+								<th>Phone</th>
+								<th>Email</th>
+							</tr>
+					`;
+
+					for (let i = 0; i < jsonObject.results.length; i++)
 					{
-						// set up a string containing contact info
-						contactList += jsonObject.results[i].FirstName +" "+ jsonObject.results[i].LastName +" "+ jsonObject.results[i].Phone +" "+ jsonObject.results[i].Email;
-						if( i < jsonObject.results.length - 1 )
-						{
-							contactList += "<br />\r\n";
-						}
+						tableHTML += `
+							<tr>
+								<td>${jsonObject.results[i].FirstName}</td>
+								<td>${jsonObject.results[i].LastName}</td>
+								<td>${jsonObject.results[i].Phone}</td>
+								<td>${jsonObject.results[i].Email}</td>
+							</tr>
+						`;
 					}
-					document.getElementById("contactSearchResult").innerHTML = "Contact(s) has been retrieved";
-				} else {
-					// no matching results were found
-					document.getElementById("contactSearchResult").innerHTML = "No matching contacts found";
+
+					// End table
+					tableHTML += "</table>";
+
+					document.getElementById("contactSearchResult").innerHTML =
+						"Contact(s) have been retrieved";
 				}
-				document.getElementsByTagName("p")[0].innerHTML = contactList;
+				else
+				{
+					document.getElementById("contactSearchResult").innerHTML =
+						"No matching contacts found";
+				}
+
+				// Put table on the page
+				document.getElementsByTagName("p")[0].innerHTML = tableHTML;
 			}
 		};
+
 		xhr.send(jsonPayload);
 	}
-	catch(err)
+	catch (err)
 	{
 		document.getElementById("contactSearchResult").innerHTML = err.message;
 	}
-	
 }
+
 
 function deleteContact(){
 	
