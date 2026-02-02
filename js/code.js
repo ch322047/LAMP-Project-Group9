@@ -243,7 +243,8 @@ function searchContact()
 					// create list of search results on screen
 					for( let i=0; i<jsonObject.results.length; i++ )
 					{
-						contactList += jsonObject.results[i].FirstName;
+						// set up a string containing contact info
+						contactList += jsonObject.results[i].FirstName +" "+ jsonObject.results[i].LastName +" "+ jsonObject.results[i].Phone +" "+ jsonObject.results[i].Email;
 						if( i < jsonObject.results.length - 1 )
 						{
 							contactList += "<br />\r\n";
