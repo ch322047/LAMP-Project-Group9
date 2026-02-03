@@ -300,19 +300,20 @@ function searchContact()
   									<button
 									type="button"
     								class="buttons"    
+									onclick="editContact(${entry.ContactId})">
+									Edit Contact
+  									</button>
+								</td>
+								
+								<td>
+  									<button
+									type="button"
+    								class="buttons"    
 									onclick="deleteContact(${entry.ContactId})">
 									Delete Contact
   									</button>
 								</td>
 
-								<td>
-  									<button
-									type="button"
-    								class="buttons"    
-									onclick="editContact(${entry.ContactId})">
-									Edit Contact
-  									</button>
-								</td>
 							</tr>
 						`;
 					}
