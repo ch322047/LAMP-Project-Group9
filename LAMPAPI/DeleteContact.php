@@ -11,12 +11,12 @@
     }
     else
     {
-        $stmt = $conn->prepare("DELETE FROM Contact WHERE (OwnerId = ? AND ContactId = ? "); //RIFY TABLE NAME Contact, contact or CONTACT??
+       $stmt = $conn->prepare("DELETE FROM Contacts WHERE OwnerId = ? AND ContactId = ?");
         $stmt->bind_param("ii", $userId, $contact);
         $stmt->execute();
         $stmt->close();
         $conn->close();
-        returnWithError("");
+        sendResultInfoAsJson('{"success":true}');
     }
 
     function getRequestInfo()
