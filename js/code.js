@@ -333,15 +333,15 @@ function deleteContact(ContactId){
 			{
 				let jsonObject = JSON.parse(xhr.responseText);
 
-				if (jsonObject.error && jsonObject.error.length > 0)
+				if (jsonObject.success === true)
 				{
-					alert("Delete failed: " + jsonObject.error);
+					searchContact();
 				}
 				else
 				{
-					// Re-run the search to refresh the table
-					searchContact();
+					alert("Delete failed");
 				}
+				
 			}
 			else
 			{
