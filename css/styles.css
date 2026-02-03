@@ -58,10 +58,10 @@ table {
 }
 th{
 	color: white;
-	background-color: gray;
+	background-color: DarkSlateGray;
 }
 tr:nth-child(even) {
-	background-color: light-gray;
+	background-color: Gainsboro;
 }
 
 
