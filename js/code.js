@@ -221,7 +221,7 @@ function addContact()
 		}
 	} else {
 		// Modify an existing contact
-		let tmp = {newFirstName:fName,newLastName:lName,newPhone:newPhone,newEmail:newEmail,contactId:modifyId};
+		let tmp = {newFirstName:fName,newLastName:lName,newPhone:newPhone,newEmail:newEmail,userId:userId,contactId:modifyId};
 		let jsonPayload = JSON.stringify( tmp );
 
 		let url = urlBase + '/UpdateContact.' + extension;
@@ -281,8 +281,8 @@ function searchContact()
 								<th>Last Name</th>
 								<th>Phone</th>
 								<th>Email</th>
-								<th>Delete</th>
 								<th>Edit</th>
+								<th>Delete</th>
 							</tr>
 					`;
 
