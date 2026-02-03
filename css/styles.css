@@ -48,6 +48,7 @@ body
 
 #searchDiv * {
 	align-self: center;
+	margin: 0;
 }
 
 .buttons
