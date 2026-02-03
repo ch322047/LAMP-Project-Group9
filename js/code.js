@@ -302,7 +302,7 @@ function searchContact()
   									<button
 									type="button"
     								class="buttons"    
-									onclick="editContact(${entry.ContactId})">
+									onclick="editContact(${entry})">
 									Edit Contact
   									</button>
 								</td>
@@ -348,16 +348,16 @@ function searchContact()
 // Edit a contact, called from the edit button next to each entry
 // This function will NOT edit a contact, it will simply fill in the add contact fields with the contact's information.
 // UpdateContact.php will instead be called from addContact, if "modifyId" is not null.
-function editContact(ContactId){
+function editContact(Contact){
 
 	// set modifyId to ContactId of the selected contact
-	modifyId = ContactId;
+	modifyId = Contact.ContactId;
 	
 	// Fill in the contact fields with the existing contact information
-	document.getElementById("fNameText").value = "test1";
-	document.getElementById("lNameText").value = "test2";
-	document.getElementById("phoneText").value = "test3";
-	document.getElementById("emailText").value = "test4";
+	document.getElementById("fNameText").value = Contact.FirstName;
+	document.getElementById("lNameText").value = Contact.LastName;
+	document.getElementById("phoneText").value = Contact.Phone;
+	document.getElementById("emailText").value = Contact.Email;
 
 	
 }
