@@ -329,7 +329,10 @@ function deleteContact(ContactId){
 	{
 		xhr.onreadystatechange = function()
 		{
-			if (this.readyState == 4 && this.status == 200)
+			if (this.readyState !== 4)
+				return;
+				
+		 	if (this.status == 200)
 			{
 				let jsonObject = JSON.parse(xhr.responseText);
 
