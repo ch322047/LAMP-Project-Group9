@@ -15,9 +15,9 @@
     of the concepts.
     */
 
-    /*ini_set('display_errors', 1);
+    ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);*/
+    error_reporting(E_ALL);
 
 	//read JSON and turn it into php array	
 	$inData = getRequestInfo();
@@ -45,7 +45,27 @@
             $conn->close();
             exit();
         }
+		
+		//check if user exists
+        $check = $conn->prepare("SELECT 1 FROM Users WHERE Login = ? LIMIT 1");
+        if(!$check) {
+            returnWithError($conn->error);
+            $conn->close();
+            exit();
+        }
 
+        $check->bind_param("s", $login);
+        $check->execute();
+        $check->store_result();
+
+        if($check->num_rows > 0) {
+            $check->close();
+            returnWithError("User already registered");
+            $conn->close();
+            exit();
+        }
+        $check->close();
+		
         //add new user
         $hash = password_hash($password, PASSWORD_DEFAULT);
 
