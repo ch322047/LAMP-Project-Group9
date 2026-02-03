@@ -313,9 +313,6 @@ function searchContact()
 
 function deleteContact(ContactId){
 
-	if (!confirm("Are you sure you want to delete this contact?"))
-		return;
-
 	let tmp = {ContactId:ContactId, OwnerId:userId};
 	let jsonPayload = JSON.stringify(tmp);
 
