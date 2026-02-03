@@ -51,6 +51,21 @@ body
 	margin: 0;
 }
 
+
+table {
+	width: 100%;
+	background-color: white;
+}
+th:{
+	color: white;
+	background-color: dark-gray;
+}
+tr:
+tr:nth-child(even) {
+	background-color: gray;
+}
+
+
 .buttons
 {
     font-size: 30px;
