@@ -60,7 +60,7 @@ th{
 	color: white;
 	background-color: DarkSlateGray;
 }
-tr:nth-child(even) {
+tr:nth-child(odd) {
 	background-color: Gainsboro;
 }
 
