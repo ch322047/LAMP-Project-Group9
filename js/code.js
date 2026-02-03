@@ -5,6 +5,10 @@ let userId = 0;
 let firstName = "";
 let lastName = "";
 
+// If the user is modifying an existing contact, modifyId will equal that contact's Id.
+// Otherwise, modifyId will be null (adds a new contact with given information)
+let modifyId = null;
+
 function doLogin()
 {
 	userId = 0;
@@ -189,28 +193,56 @@ function addContact()
 	let newEmail = document.getElementById("emailText").value;
 	document.getElementById("contactAddResult").innerHTML = "";
 
-	let tmp = {FirstName:fName,LastName:lName,Phone:newPhone,Email:newEmail,userId:userId};
-	let jsonPayload = JSON.stringify( tmp );
-
-	let url = urlBase + '/AddContact.' + extension;
+	// Determine whether to add or edit based on modifyId
+	if (modifyId == null) {
+		// Add a new contact
+		let tmp = {FirstName:fName,LastName:lName,Phone:newPhone,Email:newEmail,userId:userId};
+		let jsonPayload = JSON.stringify( tmp );
 	
-	let xhr = new XMLHttpRequest();
-	xhr.open("POST", url, true);
-	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-	try
-	{
-		xhr.onreadystatechange = function() 
+		let url = urlBase + '/AddContact.' + extension;
+		
+		let xhr = new XMLHttpRequest();
+		xhr.open("POST", url, true);
+		xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+		try
 		{
-			if (this.readyState == 4 && this.status == 200) 
+			xhr.onreadystatechange = function() 
 			{
-				document.getElementById("contactAddResult").innerHTML = "Contact has been added";
-			}
-		};
-		xhr.send(jsonPayload);
-	}
-	catch(err)
-	{
-		document.getElementById("contactAddResult").innerHTML = err.message;
+				if (this.readyState == 4 && this.status == 200) 
+				{
+					document.getElementById("contactAddResult").innerHTML = "Contact has been added";
+				}
+			};
+			xhr.send(jsonPayload);
+		}
+		catch(err)
+		{
+			document.getElementById("contactAddResult").innerHTML = err.message;
+		}
+	} else {
+		// Modify an existing contact
+		let tmp = {newFirstName:fName,newLastName:lName,newPhone:newPhone,newEmail:newEmail,contactId:modifyId};
+		let jsonPayload = JSON.stringify( tmp );
+
+		let url = urlBase + '/UpdateContact.' + extension;
+		let xhr = new XMLHttpRequest();
+		xhr.open("POST", url, true);
+		xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+		try
+		{
+			xhr.onreadystatechange = function() 
+			{
+				if (this.readyState == 4 && this.status == 200) 
+				{
+					document.getElementById("contactAddResult").innerHTML = "Contact has been updated";
+				}
+			};
+			xhr.send(jsonPayload);
+		}
+		catch(err)
+		{
+			document.getElementById("contactAddResult").innerHTML = err.message;
+		}
 	}
 	
 }
@@ -310,7 +342,22 @@ function searchContact()
 	}
 }
 
+// Edit a contact, called from the edit button next to each entry
+// This function will NOT edit a contact, it will simply fill in the add contact fields with the contact's information.
+// UpdateContact.php will instead be called from addContact, if "modifyId" is not null.
+function editContact(ContactId){
 
+	// set modifyId to ContactId of the selected contact
+	modifyId = ContactId;
+	
+	// Fill in the contact fields with the existing contact information
+
+
+	
+}
+
+
+// Delete a contact, called from the delete button next to each entry
 function deleteContact(ContactId){
 
 	if (!confirm("Are you sure you want to delete this contact?"))
