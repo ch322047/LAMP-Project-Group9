@@ -51,6 +51,20 @@ body
 	margin: 0;
 }
 
+
+table {
+	width: 100%;
+	background-color: white;
+}
+th{
+	color: white;
+	background-color: DarkSlateGray;
+}
+tr:nth-child(odd) {
+	background-color: Gainsboro;
+}
+
+
 .buttons
 {
     font-size: 30px;
