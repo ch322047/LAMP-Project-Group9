@@ -211,6 +211,7 @@ function addContact()
 				if (this.readyState == 4 && this.status == 200) 
 				{
 					document.getElementById("contactAddResult").innerHTML = "Contact has been added";
+					searchContact(); // update table
 				}
 			};
 			xhr.send(jsonPayload);
@@ -235,6 +236,7 @@ function addContact()
 				if (this.readyState == 4 && this.status == 200) 
 				{
 					document.getElementById("contactAddResult").innerHTML = "Contact has been updated";
+					searchContact(); // update table
 				}
 			};
 			xhr.send(jsonPayload);
@@ -352,7 +354,10 @@ function editContact(ContactId){
 	modifyId = ContactId;
 	
 	// Fill in the contact fields with the existing contact information
-
+	document.getElementById("fNameText").value = "test1";
+	document.getElementById("lNameText").value = "test2";
+	document.getElementById("phoneText").value = "test3";
+	document.getElementById("emailText").value = "test4";
 
 	
 }
