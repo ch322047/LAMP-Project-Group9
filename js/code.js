@@ -333,7 +333,7 @@ function deleteContact(ContactId){
 			{
 				let jsonObject = JSON.parse(xhr.responseText);
 
-				if (jsonObject.error && jsonObject.error !== "")
+				if (jsonObject.error && jsonObject.error.length > 0)
 				{
 					alert("Delete failed: " + jsonObject.error);
 				}
