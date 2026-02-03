@@ -358,8 +358,21 @@ function editContact(ContactId, FirstName, LastName, Phone, Email){
 	document.getElementById("lNameText").value = LastName;
 	document.getElementById("phoneText").value = Phone;
 	document.getElementById("emailText").value = Email;
+}
 
-	
+// Open menu to add a new contact
+// This is NOT the same as addContact, which actually adds the new contact.
+// This function wipes the fields clear and brings up the menu
+function revealAddContactMenu() {
+
+	// set modifyId to null
+	modifyId = null;
+
+	// wipe fields
+	document.getElementById("fNameText").value = "";
+	document.getElementById("lNameText").value = "";
+	document.getElementById("phoneText").value = "";
+	document.getElementById("emailText").value = "";
 }
 
 
