@@ -25,8 +25,11 @@
 <div id="accessUIDiv">
 	<br />
 
-	<input type="text" id="searchText" placeholder="Enter First Or Last Name To Search For"/>
-	<button type="button" id="searchContactButton" class="buttons" onclick="searchContact();"> Search Contact </button><br />
+	<div id="searchDiv">
+		<input type="text" id="searchText" placeholder="Enter First Or Last Name To Search For"/>
+		<button type="button" id="searchContactButton" class="buttons" onclick="searchContact();"> Search Contact </button><br />
+	</div>
+	<button type="button" id="addContactButton" class="buttons" onclick="revealAddContactMenu();"> Add Contact </button><br />
 	<span id="contactSearchResult"></span>
 	<p id="contactList">
 	</p><br /><br />
@@ -35,7 +38,7 @@
 	<input type="text" class="textField" id="lNameText" placeholder="Last Name">
 	<input type="text" class="textField" id="phoneText" placeholder="Phone Number">
 	<input type="text" class="textField" id="emailText" placeholder="Email">
-	<button type="button" id="addContactButton" class="buttons" onclick="addContact();"> Add Contact </button><br />
+	<button type="button" id="submitContactButton" class="buttons" onclick="addContact();"> Add Contact </button><br />
 	<span id="contactAddResult"></span>
 </div>
 
