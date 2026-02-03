@@ -351,13 +351,13 @@ function searchContact()
 function editContact(Contact){
 
 	// set modifyId to ContactId of the selected contact
-	modifyId = Contact.ContactId;
+	//modifyId = Contact.ContactId;
 	
 	// Fill in the contact fields with the existing contact information
-	document.getElementById("fNameText").value = Contact.FirstName;
-	document.getElementById("lNameText").value = Contact.LastName;
-	document.getElementById("phoneText").value = Contact.Phone;
-	document.getElementById("emailText").value = Contact.Email;
+	//document.getElementById("fNameText").value = Contact.FirstName;
+	//document.getElementById("lNameText").value = Contact.LastName;
+	//document.getElementById("phoneText").value = Contact.Phone;
+	//document.getElementById("emailText").value = Contact.Email;
 
 	
 }
