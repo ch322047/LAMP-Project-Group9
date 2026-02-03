@@ -302,7 +302,7 @@ function searchContact()
   									<button
 									type="button"
     								class="buttons"    
-									onclick="editContact(${entry.ContactId},${entry.FirstName},${entry.LastName},${entry.Phone},${entry.Email})">
+									onclick="editContact(${entry.ContactId},'${entry.FirstName}','${entry.LastName}','${entry.Phone}','${entry.Email}')">
 									Edit Contact
   									</button>
 								</td>
