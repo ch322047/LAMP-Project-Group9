@@ -16,7 +16,7 @@
         $stmt->execute();
         $stmt->close();
         $conn->close();
-        returnWithError("");
+        sendResultInfoAsJson('{"success":true}');
     }
 
     function getRequestInfo()
