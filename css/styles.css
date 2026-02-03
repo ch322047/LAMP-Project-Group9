@@ -58,10 +58,10 @@ table {
 }
 th:{
 	color: white;
-	background-color: dark-gray;
+	background-color: gray;
 }
 tr:nth-child(even) {
-	background-color: gray;
+	background-color: light-gray;
 }
 
 
