@@ -62,6 +62,10 @@ function doLogin()
 
 }
 
+function registerRedirect(){
+	window.location.href = "registerPage.html";
+}
+
 function doRegister(){
 	//clearing these values and initialzing global variables
 	userId = 0;
