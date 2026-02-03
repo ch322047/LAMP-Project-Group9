@@ -40,6 +40,12 @@ body
     background-color: #b2b2b2;
 }
 
+#searchDiv
+{
+	display: flex;
+	
+}
+
 .buttons
 {
     font-size: 30px;
