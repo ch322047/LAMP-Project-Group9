@@ -210,7 +210,7 @@ function addContact()
 	// validate data before contacting server
 
 	// validate first name (last name should be optional)
-	if (fname == "") {
+	if (fName == "") {
 		fNameBox.classList.add("invalidField");
 		return;
 	} else {
