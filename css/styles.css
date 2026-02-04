@@ -56,6 +56,7 @@ body
 table {
 	width: 100%;
 	background-color: white;
+	color: black;
 }
 th{
 	color: white;
@@ -166,4 +167,10 @@ select{
     margin-bottom: 1%;
     font-family: 'Ubuntu', sans-serif;
     color: #95060a;
+}
+
+
+.invalidField
+{
+	background-color: LightPink;
 }
