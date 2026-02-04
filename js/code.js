@@ -218,7 +218,7 @@ function addContact()
 	}
 
 	// validate phone
-	if (!(/^[0-9]{8,10}$/.test(newPhone))) {
+	if (!(/^[0-9]{3}-[0-9]{2,3}-[0-9]{3,4}$/.test(newPhone))) {
 		phoneBox.classList.add("invalidField");
 		return;
 	} else {
@@ -226,7 +226,7 @@ function addContact()
 	}
 
 	// validate email
-	if (!(/@/.test(newEmail))) {
+	if (!(/^[a-z]@[a-z]\\.[a-z]$/i.test(newEmail))) {
 		emailBox.classList.add("invalidField");
 		return;
 	} else {
