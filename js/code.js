@@ -226,7 +226,7 @@ function addContact()
 	}
 
 	// validate email
-	if (!(/^[^@]+@[^@]+\.[^@]+$/i.test(newEmail))) {
+	if (!(/^[^@\s]+@[^@\s]+\.[^@\s]+$/i.test(newEmail))) {
 		emailBox.classList.add("invalidField");
 		return;
 	} else {
