@@ -209,12 +209,28 @@ function addContact()
 
 	// validate data before contacting server
 
+	// validate first name (last name should be optional)
+	if (fname == "") {
+		fNameBox.classList.add("invalidField");
+		return;
+	} else {
+		fNameBox.classList.remove("invalidField");
+	}
+
 	// validate phone
-	if (newPhone == "") {
+	if (/^[0-9]{8,10}$/.test(newPhone);) {
 		phoneBox.classList.add("invalidField");
 		return;
 	} else {
 		phoneBox.classList.remove("invalidField");
+	}
+
+	// validate email
+	if (/@/.test(newEmail);) {
+		emailBox.classList.add("invalidField");
+		return;
+	} else {
+		emailBox.classList.remove("invalidField");
 	}
 	
 	// Determine whether to add or edit based on modifyId
