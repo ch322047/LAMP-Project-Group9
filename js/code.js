@@ -211,10 +211,10 @@ function addContact()
 
 	// validate phone
 	if (newPhone == "") {
-		phoneBox.classlist.add("invalidField");
+		phoneBox.classList.add("invalidField");
 		return;
 	} else {
-		phoneBox.classlist.remove("invalidField");
+		phoneBox.classList.remove("invalidField");
 	}
 	
 	// Determine whether to add or edit based on modifyId
