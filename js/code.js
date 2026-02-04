@@ -180,6 +180,7 @@ function readCookie()
 	}
 }
 
+// Logout the user and return to the login page
 function doLogout()
 {
 	userId = 0;
@@ -189,14 +190,33 @@ function doLogout()
 	window.location.href = "index.html";
 }
 
+// addContact will either add a contact with the given information or modify an existing contact to use the given information
+// based on the value of modifyId.
 function addContact()
 {
-	let fName = document.getElementById("fNameText").value;
-	let lName = document.getElementById("lNameText").value;
-	let newPhone = document.getElementById("phoneText").value;
-	let newEmail = document.getElementById("emailText").value;
+	// get references to fields
+	let fNameBox = document.getElementById("fNameText");
+	let lNameBox = document.getElementById("lNameText");
+	let phoneBox = document.getElementById("phoneText");
+	let emailBox = document.getElementById("emailText");
+
+	// get contents of fields
+	let fName = fNameBox.value;
+	let lName = lNameBox.value;
+	let newPhone = phoneBox.value;
+	let newEmail = emailBox.value;
 	document.getElementById("contactAddResult").innerHTML = "";
 
+	// validate data before contacting server
+
+	// validate phone
+	if (newPhone == "") {
+		phoneBox.classlist.add("invalidField");
+		return;
+	} else {
+		phoneBox.classlist.remove("invalidField");
+	}
+	
 	// Determine whether to add or edit based on modifyId
 	if (modifyId == null) {
 		// Add a new contact
