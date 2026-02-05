@@ -16,13 +16,13 @@ body
     color: #FEFAE0;
 }
 
-#loginDiv
-{
+#loginDiv {
     font-size: 30px;
     width: 70%;
-    margin-left: 15%;
+    margin: 0 auto;
     padding: 25px;
     background-color: #BC6C25;
+    text-align: center;
 }
 
 #loggedInDiv
@@ -113,15 +113,14 @@ input[type="text"],input[type="password"]{
     margin-bottom: 2%;
 }
 
-#inner-title{
-    display: inline-block;
+#inner-title {
+    display: block;
+    text-align: center;
     font-size: 0.8em;
-    width: 90%;
-    margin-left: 5%;
     margin-bottom: 2%;
     color: #FEFAE0;
-    text-align: center;
 }
+
 
 #loginResult{
     display: inline-block;
