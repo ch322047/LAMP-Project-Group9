@@ -54,6 +54,16 @@ body
     text-align: center; /* optional but recommended */
 }
 
+#contactFieldsBox {
+	position: relative;
+	font-size: 2.5vw;
+    width: 80%;
+    margin: 0 auto;      /* ← THIS */
+    padding: 25px;
+    background-color: #BC6C25;
+    text-align: center; /* optional but recommended */
+}
+
 #searchDiv {
     display: flex;
 	width: 100%;
