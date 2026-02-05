@@ -10,46 +10,60 @@ body
     width: 100%;
     margin: 2% 5%;
     text-align: center;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Inter';
     color: #FEFAE0;
 }
 
 #loginDiv
 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 30px;
     width: 70%;
     margin-left: 15%;
     padding: 25px;
     background-color: #BC6C25;
+    font-family: 'Inter';
 }
 
 #loggedInDiv
 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 30px;
     width: 70%;
     margin-left: 15%;
     padding: 25px;
     background-color: #BC6C25;
+    font-family: 'Inter';
 }
 
 #accessUIDiv
 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 30px;
     width: 70%;
     margin-left: 15%;
     padding: 25px;
     background-color: #BC6C25;
+    font-family: 'Inter';
 }
 
 #searchDiv
 {
 	display: flex;
 	align-items: stretch;
+    font-family: 'Inter';
 }
 
 #searchDiv * {
 	align-self: center;
 	margin: 0;
+    font-family: 'Inter';
 }
 
 
@@ -57,10 +71,12 @@ table {
 	width: 100%;
 	background-color: white;
 	color: black;
+    font-family: 'Inter';
 }
 th{
 	color: white;
 	background-color: DarkSlateGray;
+    font-family: 'Inter';
 }
 tr:nth-child(odd) {
 	background-color: Gainsboro;
@@ -72,10 +88,10 @@ tr:nth-child(odd) {
     border-radius: 25px;
     width: 50%;
     margin-left: 25%;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Inter';
     background-color: #606C38;
     color: #FEFAE0;
-    border: none;
+    border: black;
 }
 
 
@@ -88,18 +104,22 @@ tr:nth-child(odd) {
 #loginName
 {
 	font-size: 30px;
+    font-family: 'Inter';
 }
 #loginPassword
 {
 	font-size: 30px;
+    font-family: 'Inter';
 }
 #searchText
 {
 	font-size: 30px;
+    font-family: 'Inter';
 }
 .textField
 {
 	font-size: 30px;
+    font-family: 'Inter';
 }
 
 input[type="text"],input[type="password"]{
@@ -108,7 +128,7 @@ input[type="text"],input[type="password"]{
     width: 80%;
     margin-left: 10%;
     margin-bottom: 2%;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Inter';
 }
 
 #inner-title{
@@ -118,8 +138,11 @@ input[type="text"],input[type="password"]{
     text-align: center;
     margin-left: 5%;
     margin-bottom: 2%;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Inter';
     color: #FEFAE0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #loginResult{
@@ -129,7 +152,7 @@ input[type="text"],input[type="password"]{
     text-align: center;
     margin-left: 5%;
     margin-bottom: 2%;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Inter';
     color: #95060a;
 }
 
@@ -138,11 +161,13 @@ input[type="text"],input[type="password"]{
     width: 80%;
     margin-left: 10%;
     text-align: center;
+    font-family: 'Inter';
 }
 
 #logoutButton{
     width: 20%;
     margin-left: 40%;
+    font-family: 'Inter';
 }
 
 select{
@@ -150,11 +175,12 @@ select{
     margin-left: 35%;
     margin-top: 2%;
     font-size: 0.75em;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Inter';
 }
 
 #contactSearchResult{
     display: none;
+    font-family: 'Inter';
 }
 
 #contactAddResult{
@@ -165,7 +191,7 @@ select{
     margin-left: 5%;
     margin-top: 2%;
     margin-bottom: 1%;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Inter';
     color: #95060a;
 }
 
@@ -173,4 +199,5 @@ select{
 .invalidField
 {
 	background-color: LightPink;
+    font-family: 'Inter';
 }
