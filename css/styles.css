@@ -71,7 +71,7 @@ body
 	display: flex;
 }
 .adjacentBox > div {
-	width: 100%;
+	width: 2vw;
 }
 
 #searchDiv {
