@@ -57,7 +57,6 @@ body
 #contactFieldsBox {
 	position: fixed;
 	font-size: 2vw;
-    width: 80%;
     padding: 2vw;
     background-color: #283618;
     text-align: center; /* optional but recommended */
@@ -65,6 +64,11 @@ body
 	bottom: 5vw;
 	left: 5vw;
 	right: 5vw;
+	align-self: center;
+}
+
+.adjacentBox {
+	display: flex;
 }
 
 #searchDiv {
