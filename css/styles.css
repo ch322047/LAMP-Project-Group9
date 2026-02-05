@@ -24,20 +24,34 @@ body
     text-align: center;
 }
 
+#registerDiv {
+    font-size: 30px;
+    width: 70%;
+    margin: 0 auto;
+    padding: 25px;
+    background-color: #BC6C25;
+    text-align: center;
+}
+
 #loggedInDiv
 {
     font-size: 30px;
     width: 70%;
+    margin: 0 auto;      /* ← THIS */
     padding: 25px;
     background-color: #BC6C25;
+    text-align: center; /* optional but recommended */
 }
+
 
 #accessUIDiv
 {
     font-size: 30px;
     width: 70%;
+    margin: 0 auto;      /* ← THIS */
     padding: 25px;
     background-color: #BC6C25;
+    text-align: center; /* optional but recommended */
 }
 
 #searchDiv {
