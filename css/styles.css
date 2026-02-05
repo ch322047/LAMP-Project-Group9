@@ -40,10 +40,9 @@ body
     background-color: #BC6C25;
 }
 
-#searchDiv
-{
-	display: flex;
-	align-items: stretch;
+#searchDiv {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 #searchDiv * {
@@ -112,7 +111,7 @@ input[type="text"],input[type="password"],input[type="tel"]{
     margin-bottom: 2%;
 }
 
-#inner-title {
+.inner-title {
     display: block;
     text-align: center;
     font-size: 0.8em;
@@ -137,8 +136,6 @@ input[type="text"],input[type="password"],input[type="tel"]{
 }
 
 #logoutButton{
-    display: block;
-    text-align: center;
     width: 20%;
     border: black;
 }
