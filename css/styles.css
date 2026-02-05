@@ -105,7 +105,7 @@ tr:nth-child(odd) {
 	font-size: 30px;
 }
 
-input[type="text"],input[type="password"]{
+input[type="text"],input[type="password"],input[type="tel"]{
     border-radius: 25px;
     text-align: center;
     width: 80%;
