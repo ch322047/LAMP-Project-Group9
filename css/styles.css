@@ -11,7 +11,6 @@ body
 {
     font-size: 40px;
     width: 100%;
-    margin: 2% 5%;
     text-align: center;
     color: #FEFAE0;
 }
@@ -72,9 +71,8 @@ tr:nth-child(odd) {
 .buttons {
     font-weight: 500;
     font-size: 30px;
-    border-radius: 25px;
+    border-radius: 50px;
     width: 50%;
-    margin-left: 25%;
     background-color: #606C38;
     color: #FEFAE0;
     border: black;
