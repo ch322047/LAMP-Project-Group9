@@ -86,6 +86,7 @@ body
 
 
 table {
+	font-size: 1.5vw;
 	width: 100%;
 	background-color: white;
 	color: black;
@@ -113,6 +114,9 @@ tr:nth-child(odd) {
 }
 .iconButtons {
 	/* don't delete me! I'll be needed later */
+}
+.iconButtons > img{
+	width: 2vw;
 }
 
 
