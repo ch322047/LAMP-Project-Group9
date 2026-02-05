@@ -9,14 +9,14 @@ body
 
 #title 
 {
-    font-size: 40px;
+    font-size: 3vw;
     width: 100%;
     text-align: center;
     color: #FEFAE0;
 }
 
 #loginDiv {
-    font-size: 30px;
+    font-size: 2.5vw;
     width: 70%;
     margin: 0 auto;
     padding: 25px;
@@ -25,7 +25,7 @@ body
 }
 
 #registerDiv {
-    font-size: 30px;
+    font-size: 2.5vw;
     width: 70%;
     margin: 0 auto;
     padding: 25px;
@@ -35,7 +35,7 @@ body
 
 #loggedInDiv
 {
-    font-size: 30px;
+    font-size: 2.5vw;
     width: 70%;
     margin: 0 auto;      /* ← THIS */
     padding: 25px;
@@ -46,7 +46,7 @@ body
 
 #accessUIDiv
 {
-    font-size: 30px;
+    font-size: 2.5vw;
     width: 70%;
     margin: 0 auto;      /* ← THIS */
     padding: 25px;
@@ -81,12 +81,12 @@ tr:nth-child(odd) {
 
 .buttons {
     font-weight: 500;
-    font-size: 30px;
+    font-size: 2.5vw;
     border-radius: 50px;
     width: 50%;
     background-color: #606C38;
     color: #FEFAE0;
-    border: 2px solid black;
+    border: 0.2vw solid black;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -105,19 +105,19 @@ tr:nth-child(odd) {
 
 #loginName
 {
-	font-size: 30px;
+	font-size: 2.5vw;
 }
 #loginPassword
 {
-	font-size: 30px;
+	font-size: 2.5vw;
 }
 #searchText
 {
-	font-size: 30px;
+	font-size: 2.5vw;
 }
 .textField
 {
-	font-size: 30px;
+	font-size: 2.5vw;
 }
 
 ::placeholder { /* text field hints */
@@ -126,7 +126,7 @@ tr:nth-child(odd) {
 
 input[type="text"],input[type="password"],input[type="tel"]
 {
-    border-radius: 2.5vw;
+    border-radius: 7.5vw;
     text-align: center;
     width: 80%;
     margin-bottom: 2%;
