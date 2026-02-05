@@ -16,9 +16,6 @@ body
 
 #loginDiv
 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: 30px;
     width: 70%;
     margin-left: 15%;
@@ -29,9 +26,6 @@ body
 
 #loggedInDiv
 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: 30px;
     width: 70%;
     margin-left: 15%;
@@ -42,9 +36,6 @@ body
 
 #accessUIDiv
 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: 30px;
     width: 70%;
     margin-left: 15%;
@@ -135,14 +126,11 @@ input[type="text"],input[type="password"]{
     display: inline-block;
     font-size: 0.8em;
     width: 90%;
-    text-align: center;
     margin-left: 5%;
     margin-bottom: 2%;
     font-family: 'Inter';
     color: #FEFAE0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
 }
 
 #loginResult{
