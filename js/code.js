@@ -209,10 +209,12 @@ function addContact()
 
 	// validate data before contacting server
 
+	fieldsValid = true;
+	
 	// validate first name (last name should be optional)
 	if (fName == "") {
 		fNameBox.classList.add("invalidField");
-		return;
+		fieldsValid = false;
 	} else {
 		fNameBox.classList.remove("invalidField");
 	}
@@ -220,7 +222,7 @@ function addContact()
 	// validate phone
 	if (!(/^[0-9]{3}-[0-9]{2,3}-[0-9]{3,4}$/.test(newPhone))) {
 		phoneBox.classList.add("invalidField");
-		return;
+		fieldsValid = false;
 	} else {
 		phoneBox.classList.remove("invalidField");
 	}
@@ -228,9 +230,14 @@ function addContact()
 	// validate email
 	if (!(/^[^@\s]+@[^@\s]+\.[^@\s]+$/i.test(newEmail))) {
 		emailBox.classList.add("invalidField");
-		return;
+		fieldsValid = false;
 	} else {
 		emailBox.classList.remove("invalidField");
+	}
+
+	// if any fields are invalid, do not send!
+	if (!fieldsValid) {
+		return;
 	}
 	
 	// Determine whether to add or edit based on modifyId
