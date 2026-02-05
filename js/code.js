@@ -399,6 +399,9 @@ function searchContact()
 // UpdateContact.php will instead be called from addContact, if "modifyId" is not null.
 function editContact(ContactId, FirstName, LastName, Phone, Email){
 
+	// show contact menu
+	revealAddContactMenu();
+	
 	// set modifyId to ContactId of the selected contact
 	modifyId = ContactId;
 	
