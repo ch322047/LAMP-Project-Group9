@@ -172,4 +172,5 @@ select{
 .invalidField
 {
 	background-color: LightPink;
+	border-color: red;
 }
