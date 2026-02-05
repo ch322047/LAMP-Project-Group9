@@ -99,7 +99,6 @@ tr:nth-child(odd) {
 .buttons:hover{
     background-color: #00d5124f;
     color: #306e2b;
-    border: 2px solid black;
     opacity: 50%;
 }
 
