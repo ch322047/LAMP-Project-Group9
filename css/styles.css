@@ -1,6 +1,6 @@
 body 
 {
-    background-color: #283618;
+    background-color: #606C38;
     color: #FEFAE0;
     font-family: 'Inter', sans-serif;
     line-height: 1.4;
@@ -9,36 +9,36 @@ body
 
 #title 
 {
-    font-size: 4vw;
+    font-size: 40px;
     width: 100%;
     text-align: center;
     color: #FEFAE0;
 }
 
 #loginDiv {
-    font-size: 3vw;
+    font-size: 30px;
     width: 70%;
     margin: 0 auto;
-    padding: 2.5vw;
+    padding: 25px;
     background-color: #BC6C25;
     text-align: center;
 }
 
 #registerDiv {
-    font-size: 3vw;
+    font-size: 30px;
     width: 70%;
     margin: 0 auto;
-    padding: 2.5vw;
+    padding: 25px;
     background-color: #BC6C25;
     text-align: center;
 }
 
 #loggedInDiv
 {
-    font-size: 3vw;
+    font-size: 30px;
     width: 70%;
     margin: 0 auto;      /* ← THIS */
-    padding: 2.5vw;
+    padding: 25px;
     background-color: #BC6C25;
     text-align: center; /* optional but recommended */
 }
@@ -46,17 +46,17 @@ body
 
 #accessUIDiv
 {
-    font-size: 3vw;
+    font-size: 30px;
     width: 70%;
     margin: 0 auto;      /* ← THIS */
-    padding: 2.5vw;
+    padding: 25px;
     background-color: #BC6C25;
     text-align: center; /* optional but recommended */
 }
 
 #searchDiv {
     display: flex;
-	width: 80%;
+    flex-wrap: wrap;
 }
 
 #searchDiv * {
@@ -81,43 +81,40 @@ tr:nth-child(odd) {
 
 .buttons {
     font-weight: 500;
-    font-size: 3vw;
-    border-radius: 5vw;
-    width: 100%;
+    font-size: 30px;
+    border-radius: 50px;
+    width: 50%;
     background-color: #606C38;
     color: #FEFAE0;
-    border: black;
+    border: 2px solid black;
     display: block;
     margin-left: auto;
     margin-right: auto;
-}
-.iconButtons {
-	
 }
 
 
 .buttons:hover{
     background-color: #00d5124f;
     color: #306e2b;
-    border: black;
-    /*opacity: 50%;*/
+    border: 2px solid black;
+    opacity: 50%;
 }
 
 #loginName
 {
-	font-size: 3vw;
+	font-size: 30px;
 }
 #loginPassword
 {
-	font-size: 3vw;
+	font-size: 30px;
 }
 #searchText
 {
-	font-size: 3vw;
+	font-size: 30px;
 }
 .textField
 {
-	font-size: 3vw;
+	font-size: 30px;
 }
 
 ::placeholder { /* text field hints */
@@ -128,7 +125,7 @@ input[type="text"],input[type="password"],input[type="tel"]
 {
     border-radius: 25px;
     text-align: center;
-    width: 100%;
+    width: 80%;
     margin-bottom: 2%;
     display: block;
     margin-left: auto;
