@@ -178,3 +178,7 @@ select{
 	background-color: LightPink;
 	border-color: red;
 }
+.validField
+{
+	border-color: green;
+}
