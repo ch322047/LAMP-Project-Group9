@@ -158,7 +158,7 @@ input[type="text"],input[type="password"],input[type="tel"]
 
 #logoutButton{
     width: 20%;
-    border: black;
+    border: 2px solid black;
 }
 
 select{
