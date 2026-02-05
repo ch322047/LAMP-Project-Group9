@@ -2,6 +2,9 @@ body
 {
     background-color: #283618;
     color: #FEFAE0;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.4;
+    letter-spacing: 0.2px;
 }
 
 #title 
@@ -10,7 +13,6 @@ body
     width: 100%;
     margin: 2% 5%;
     text-align: center;
-    font-family: 'Inter';
     color: #FEFAE0;
 }
 
@@ -21,7 +23,6 @@ body
     margin-left: 15%;
     padding: 25px;
     background-color: #BC6C25;
-    font-family: 'Inter';
 }
 
 #loggedInDiv
@@ -31,7 +32,6 @@ body
     margin-left: 15%;
     padding: 25px;
     background-color: #BC6C25;
-    font-family: 'Inter';
 }
 
 #accessUIDiv
@@ -41,20 +41,17 @@ body
     margin-left: 15%;
     padding: 25px;
     background-color: #BC6C25;
-    font-family: 'Inter';
 }
 
 #searchDiv
 {
 	display: flex;
 	align-items: stretch;
-    font-family: 'Inter';
 }
 
 #searchDiv * {
 	align-self: center;
 	margin: 0;
-    font-family: 'Inter';
 }
 
 
@@ -62,12 +59,10 @@ table {
 	width: 100%;
 	background-color: white;
 	color: black;
-    font-family: 'Inter';
 }
 th{
 	color: white;
 	background-color: DarkSlateGray;
-    font-family: 'Inter';
 }
 tr:nth-child(odd) {
 	background-color: Gainsboro;
@@ -75,11 +70,11 @@ tr:nth-child(odd) {
 
 
 .buttons {
+    font-weight: 500;
     font-size: 30px;
     border-radius: 25px;
     width: 50%;
     margin-left: 25%;
-    font-family: 'Inter';
     background-color: #606C38;
     color: #FEFAE0;
     border: black;
@@ -89,28 +84,25 @@ tr:nth-child(odd) {
 .buttons:hover{
     background-color: #00d5124f;
     color: #306e2b;
+    border: black;
     opacity: 50%;
 }
 
 #loginName
 {
 	font-size: 30px;
-    font-family: 'Inter';
 }
 #loginPassword
 {
 	font-size: 30px;
-    font-family: 'Inter';
 }
 #searchText
 {
 	font-size: 30px;
-    font-family: 'Inter';
 }
 .textField
 {
 	font-size: 30px;
-    font-family: 'Inter';
 }
 
 input[type="text"],input[type="password"]{
@@ -119,7 +111,6 @@ input[type="text"],input[type="password"]{
     width: 80%;
     margin-left: 10%;
     margin-bottom: 2%;
-    font-family: 'Inter';
 }
 
 #inner-title{
@@ -128,7 +119,6 @@ input[type="text"],input[type="password"]{
     width: 90%;
     margin-left: 5%;
     margin-bottom: 2%;
-    font-family: 'Inter';
     color: #FEFAE0;
     text-align: center;
 }
@@ -140,7 +130,6 @@ input[type="text"],input[type="password"]{
     text-align: center;
     margin-left: 5%;
     margin-bottom: 2%;
-    font-family: 'Inter';
     color: #95060a;
 }
 
@@ -149,13 +138,12 @@ input[type="text"],input[type="password"]{
     width: 80%;
     margin-left: 10%;
     text-align: center;
-    font-family: 'Inter';
 }
 
 #logoutButton{
     width: 20%;
     margin-left: 40%;
-    font-family: 'Inter';
+    border: black;
 }
 
 select{
@@ -163,12 +151,10 @@ select{
     margin-left: 35%;
     margin-top: 2%;
     font-size: 0.75em;
-    font-family: 'Inter';
 }
 
 #contactSearchResult{
     display: none;
-    font-family: 'Inter';
 }
 
 #contactAddResult{
@@ -179,7 +165,6 @@ select{
     margin-left: 5%;
     margin-top: 2%;
     margin-bottom: 1%;
-    font-family: 'Inter';
     color: #95060a;
 }
 
@@ -187,5 +172,4 @@ select{
 .invalidField
 {
 	background-color: LightPink;
-    font-family: 'Inter';
 }
