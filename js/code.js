@@ -259,6 +259,7 @@ function addContact()
 				{
 					document.getElementById("contactAddResult").innerHTML = "Contact has been added";
 					searchContact(); // update table
+					hideAddContactMenu(); // close menu
 				}
 			};
 			xhr.send(jsonPayload);
@@ -284,6 +285,7 @@ function addContact()
 				{
 					document.getElementById("contactAddResult").innerHTML = "Contact has been updated";
 					searchContact(); // update table
+					hideAddContactMenu(); // close menu
 				}
 			};
 			xhr.send(jsonPayload);
