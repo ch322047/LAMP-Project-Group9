@@ -87,6 +87,9 @@ tr:nth-child(odd) {
     background-color: #606C38;
     color: #FEFAE0;
     border: black;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
@@ -118,11 +121,15 @@ tr:nth-child(odd) {
 	color: LightGray;
 }
 
-input[type="text"],input[type="password"],input[type="tel"]{
+input[type="text"],input[type="password"],input[type="tel"]
+{
     border-radius: 25px;
     text-align: center;
     width: 80%;
     margin-bottom: 2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .inner-title {
