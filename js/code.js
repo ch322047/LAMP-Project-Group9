@@ -413,7 +413,7 @@ function editContact(ContactId, FirstName, LastName, Phone, Email){
 function revealAddContactMenu() {
 
 	// reveal
-	document.getElementById("contactFieldsBox").setAttribute("hidden", "false");
+	document.getElementById("contactFieldsBox").hidden=false;
 	
 	// set modifyId to null
 	modifyId = null;
@@ -427,7 +427,7 @@ function revealAddContactMenu() {
 
 // hide the contactFieldsBox
 function hideAddContactMenu() {
-	document.getElementById("contactFieldsBox").setAttribute("hidden", "true");
+	document.getElementById("contactFieldsBox").hidden=true;
 }
 
 
