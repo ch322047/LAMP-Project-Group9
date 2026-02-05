@@ -55,13 +55,16 @@ body
 }
 
 #contactFieldsBox {
-	position: relative;
-	font-size: 2.5vw;
+	position: fixed;
+	font-size: 2vw;
     width: 80%;
-    margin: 0 auto;      /* ← THIS */
-    padding: 25px;
-    background-color: #BC6C25;
+    padding: 2vw;
+    background-color: #283618;
     text-align: center; /* optional but recommended */
+	top: 5vw;
+	bottom: 5vw;
+	left: 5vw;
+	right: 5vw;
 }
 
 #searchDiv {
