@@ -412,6 +412,9 @@ function editContact(ContactId, FirstName, LastName, Phone, Email){
 // This function wipes the fields clear and brings up the menu
 function revealAddContactMenu() {
 
+	// reveal
+	document.getElementById("contactFieldsBox").setAttribute("hidden", "false");
+	
 	// set modifyId to null
 	modifyId = null;
 
@@ -420,6 +423,11 @@ function revealAddContactMenu() {
 	document.getElementById("lNameText").value = "";
 	document.getElementById("phoneText").value = "";
 	document.getElementById("emailText").value = "";
+}
+
+// hide the contactFieldsBox
+function hideAddContactMenu() {
+	document.getElementById("contactFieldsBox").setAttribute("hidden", "true");
 }
 
 
