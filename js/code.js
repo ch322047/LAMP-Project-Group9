@@ -348,18 +348,18 @@ function searchContact()
 								<td>
   									<button
 									type="button"
-    								class="buttons"    
+    								class="buttons iconButtons"    
 									onclick="editContact(${entry.ContactId},'${entry.FirstName}','${entry.LastName}','${entry.Phone}','${entry.Email}')">
-									Edit Contact
+									<img src="images/svg/edit-3.svg" alt="Edit">
   									</button>
 								</td>
 								
 								<td>
   									<button
 									type="button"
-    								class="buttons"    
+    								class="buttons iconButtons"    
 									onclick="deleteContact(${entry.ContactId})">
-									Delete Contact
+									<img src="images/svg/trash-2.svg" alt="Delete">
   									</button>
 								</td>
 
