@@ -105,6 +105,10 @@ tr:nth-child(odd) {
 	font-size: 30px;
 }
 
+::placeholder { /* text field hints */
+	color: LightGray;
+}
+
 input[type="text"],input[type="password"],input[type="tel"]{
     border-radius: 25px;
     text-align: center;
