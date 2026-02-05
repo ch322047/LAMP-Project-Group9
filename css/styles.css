@@ -28,7 +28,6 @@ body
 {
     font-size: 30px;
     width: 70%;
-    margin-left: 15%;
     padding: 25px;
     background-color: #BC6C25;
 }
@@ -37,7 +36,6 @@ body
 {
     font-size: 30px;
     width: 70%;
-    margin-left: 15%;
     padding: 25px;
     background-color: #BC6C25;
 }
@@ -111,7 +109,6 @@ input[type="text"],input[type="password"],input[type="tel"]{
     border-radius: 25px;
     text-align: center;
     width: 80%;
-    margin-left: 10%;
     margin-bottom: 2%;
 }
 
@@ -129,7 +126,6 @@ input[type="text"],input[type="password"],input[type="tel"]{
     font-size: 0.8em;
     width: 90%;
     text-align: center;
-    margin-left: 5%;
     margin-bottom: 2%;
     color: #95060a;
 }
@@ -137,19 +133,18 @@ input[type="text"],input[type="password"],input[type="tel"]{
 #userName{
     display: inline-block;
     width: 80%;
-    margin-left: 10%;
     text-align: center;
 }
 
 #logoutButton{
+    display: block;
+    text-align: center;
     width: 20%;
-    margin-left: 40%;
     border: black;
 }
 
 select{
     width: 30%;
-    margin-left: 35%;
     margin-top: 2%;
     font-size: 0.75em;
 }
@@ -163,7 +158,6 @@ select{
     font-size: 0.8em;
     width: 90%;
     text-align: center;
-    margin-left: 5%;
     margin-top: 2%;
     margin-bottom: 1%;
     color: #95060a;
