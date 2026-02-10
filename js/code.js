@@ -62,9 +62,6 @@ function doLogin()
 
 }
 
-function registerRedirect(){
-	window.location.href = "registerPage.html";
-}
 
 function redirect(page){
 	window.location.href = page;
