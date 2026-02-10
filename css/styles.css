@@ -82,9 +82,10 @@ body
 
 .adjacentBox {
 	display: flex;
+	justify-content: space-around;
 }
 .adjacentBox > div {
-	width: 2vw;
+	width: 70%;
 }
 
 #searchDiv {
