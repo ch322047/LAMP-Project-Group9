@@ -17,7 +17,7 @@ body
 
 #logo {
     display: block;
-    margin: 1% auto 2%;
+    margin: 0.5% auto;
     width: 12vw;
     max-width: 160px;
     min-width: 80px;
