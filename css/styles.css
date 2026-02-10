@@ -17,12 +17,12 @@ body
 
 #header {
     text-align: center;
-    margin-bottom: 1%;
+    margin-bottom: 0.5%;
 }
 
 #logo {
     display: block;
-    margin: 0.5% auto;
+    margin-top: 0;
     width: 12vw;
     max-width: 160px;
     min-width: 80px;
