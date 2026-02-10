@@ -15,6 +15,14 @@ body
     color: #FEFAE0;
 }
 
+#logo {
+    display: block;
+    margin: 1% auto 2%;
+    width: 12vw;
+    max-width: 160px;
+    min-width: 80px;
+}
+
 #loginDiv {
     font-size: 2.5vw;
     width: 70%;
