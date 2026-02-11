@@ -72,13 +72,13 @@
 	
 	function returnWithError($err)
 	{
-		$retValue = $err;
+		$retValue = '{"error": "' . $err . '"}';
 		sendResultInfoAsJson($retValue);
 	}
 	
 	function returnWithSuccess()
 	{
-		$retValue = "Update Success!";
+		$retValue = '{"error": ""}';
 		sendResultInfoAsJson($retValue);
 	}
 ?>
