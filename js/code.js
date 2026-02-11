@@ -259,6 +259,9 @@ function addContact()
 				if (this.readyState == 4 && this.status == 200) 
 				{
 					document.getElementById("contactAddResult").innerHTML = "Contact has been added";
+					setTimeout(function() {
+						document.getElementById("contactAddResult").innerHTML = "";
+					}, 3000);
 					searchContact(); // update table
 					hideAddContactMenu(); // close menu
 				}
@@ -285,6 +288,9 @@ function addContact()
 				if (this.readyState == 4 && this.status == 200) 
 				{
 					document.getElementById("contactAddResult").innerHTML = "Contact has been updated";
+					setTimeout(function() {
+						document.getElementById("contactAddResult").innerHTML = "";
+					}, 3000);
 					searchContact(); // update table
 					hideAddContactMenu(); // close menu
 				}
@@ -338,7 +344,8 @@ function searchContact()
 							</tr>
 					`;
 
-					for (let i = 0; i < jsonObject.results.length; i++)
+					let maxDisplay = Math.min(5, jsonObject.results.length);
+					for (let i = 0; i < maxDisplay; i++)
 					{
 						let entry = jsonObject.results[i];
 

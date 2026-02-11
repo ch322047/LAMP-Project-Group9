@@ -78,6 +78,7 @@ body
 	left: 5vw;
 	right: 5vw;
 	align-self: center;
+	z-index: 100;
 }
 
 .adjacentBox {
@@ -128,6 +129,8 @@ tr:nth-child(odd) {
 }
 .iconButtons {
 	/* don't delete me! I'll be needed later */
+	/* Uhm sure */
+    padding: 0.5vw;
 }
 .iconButtons > img{
 	width: 2vw;
@@ -214,13 +217,16 @@ select{
 }
 
 #contactAddResult{
-    display: inline-block;
+    display: block;
     font-size: 0.8em;
     width: 90%;
     text-align: center;
     margin-top: 2%;
     margin-bottom: 1%;
     color: #95060a;
+    min-height: 1.2em;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
