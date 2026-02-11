@@ -127,13 +127,21 @@ tr:nth-child(odd) {
     margin-left: auto;
     margin-right: auto;
 }
-.iconButtons {
-	/* don't delete me! I'll be needed later */
-	/* Uhm sure */
-    padding: 0.5vw;
+
+.iconButtons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.2vw;
 }
+
+/* clamp(min, preferred, max) works with anything size related */
+/* Using > targets the children of the class and the type after 
+    filters which type of children are we styling */
 .iconButtons > img{
-	width: 2vw;
+  width: clamp(28px, 3.2vw, 48px);
+  height: clamp(22px, 2.3vw, 40px);
+  object-fit: contain;
 }
 
 
