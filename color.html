@@ -22,24 +22,26 @@
 </head>
 <body onload="searchContact()">
 
-<div id="contactFieldsBox" hidden>
-	<div class="adjacentBox">
-		<div>
-			<label for="fNameText">First Name</label>
-			<input type="text" class="textField" id="fNameText" placeholder="John">
+<div id="windowBG" hidden>
+	<div id="contactFieldsBox">
+		<div class="adjacentBox">
+			<div>
+				<label for="fNameText">First Name</label>
+				<input type="text" class="textField" id="fNameText" placeholder="John">
+			</div>
+			<div>
+				<label for="lNameText">Last Name</label>
+				<input type="text" class="textField" id="lNameText" placeholder="Doe">
+			</div>
 		</div>
-		<div>
-			<label for="lNameText">Last Name</label>
-			<input type="text" class="textField" id="lNameText" placeholder="Doe">
+		<label for="phoneText">Phone Number</label>
+		<input type="tel" class="textField" id="phoneText" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{2,3}-[0-9]{3,4}">
+		<label for="emailText">Email</label>
+		<input type="text" class="textField" id="emailText" placeholder="jdoe@example.com">
+		<div class="adjacentBox">
+			<button type="button" id="submitContactButton" class="buttons" onclick="addContact();"> Add Contact </button>
+			<button type="button" id="cancelContactButton" class="buttons" onclick="hideAddContactMenu();"> Cancel </button>
 		</div>
-	</div>
-	<label for="phoneText">Phone Number</label>
-	<input type="tel" class="textField" id="phoneText" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{2,3}-[0-9]{3,4}">
-	<label for="emailText">Email</label>
-	<input type="text" class="textField" id="emailText" placeholder="jdoe@example.com">
-	<div class="adjacentBox">
-		<button type="button" id="submitContactButton" class="buttons" onclick="addContact();"> Add Contact </button>
-		<button type="button" id="cancelContactButton" class="buttons" onclick="hideAddContactMenu();"> Cancel </button>
 	</div>
 </div>
 
