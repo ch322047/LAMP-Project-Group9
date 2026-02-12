@@ -134,7 +134,7 @@ tr:nth-child(odd) {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 1.2vw;
+	padding: 0.5vw;
 }
 
 /* clamp(min, preferred, max) works with anything size related */
@@ -152,6 +152,7 @@ tr:nth-child(odd) {
 td > .iconButtons > img {
     width: 1.8vw;
     height: 1.8vw;
+	padding: 0.5vw;
 }
 
 
