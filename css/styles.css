@@ -129,19 +129,23 @@ tr:nth-child(odd) {
 }
 
 .iconButtons{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1.2vw;
+	text-wrap-mode: nowrap;
+	width: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1.2vw;
 }
 
 /* clamp(min, preferred, max) works with anything size related */
 /* Using > targets the children of the class and the type after 
     filters which type of children are we styling */
 .iconButtons > img{
-  width: clamp(28px, 3.2vw, 48px);
-  height: clamp(22px, 2.3vw, 40px);
-  object-fit: contain;
+	width: 2.3vw;
+	height: 2.3vw;
+	/*width: clamp(28px, 3.2vw, 48px);
+	height: clamp(22px, 2.3vw, 40px);*/
+	object-fit: contain;
 }
 
 
@@ -161,6 +165,7 @@ tr:nth-child(odd) {
 }
 #searchText
 {
+	width:90%;
 	font-size: 2vw;
 }
 .textField
