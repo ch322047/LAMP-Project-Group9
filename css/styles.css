@@ -23,13 +23,13 @@ body
 #logo {
     display: block;
     margin: 0 auto;
-    width: 12vw;
+    width: 10vw;
     /*max-width: 160px;
     min-width: 80px;*/
 }
 
 #loginDiv {
-    font-size: 2.5vw;
+    font-size: 2vw;
     width: 70%;
     margin: 0 auto;
     padding: 2vw;
@@ -48,7 +48,7 @@ body
 
 #loggedInDiv
 {
-    font-size: 2.5vw;
+    font-size: 2.3vw;
     width: 70%;
     margin: 0 auto;      /* ← THIS */
     padding: 2vw 2vw 0 2vw;
@@ -59,7 +59,7 @@ body
 
 #accessUIDiv
 {
-    font-size: 2.5vw;
+    font-size: 2.3vw;
     width: 70%;
     margin: 0 auto;      /* ← THIS */
     padding: 2vw;
@@ -153,19 +153,19 @@ tr:nth-child(odd) {
 
 #loginName
 {
-	font-size: 2.5vw;
+	font-size: 2vw;
 }
 #loginPassword
 {
-	font-size: 2.5vw;
+	font-size: 2vw;
 }
 #searchText
 {
-	font-size: 2.5vw;
+	font-size: 2vw;
 }
 .textField
 {
-	font-size: 2.5vw;
+	font-size: 2vw;
 }
 
 ::placeholder { /* text field hints */
