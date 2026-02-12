@@ -148,6 +148,13 @@ tr:nth-child(odd) {
 	object-fit: contain;
 }
 
+/* edit & delete buttons */
+.iconButtons > img {
+    width: 2.3vw;
+    height: 2.3vw;
+    object-fit: contain;
+}
+
 
 .buttons:hover{
     background-color: #00d5124f;
