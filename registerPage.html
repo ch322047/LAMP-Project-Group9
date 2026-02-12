@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="description" content="Login to CapyContacts - Manage your contacts efficiently with our easy-to-use contact management system.">
-	<title>CapyContacts Login Page</title>
+	<meta name="description" content="Create your CapyContacts account - Sign up and feel the experience of easily managing your contacts with just a few clicks.">
+	<title>CapyContacts Register Page</title>
 	<link rel="preload" as="image" href="images/capybara.avif" type="image/avif">
 	<link rel="preload" as="image" href="images/capybara.png" type="image/png">
 	<script type="text/javascript" defer src="js/md5.js"></script>
@@ -14,7 +14,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-	
+
 <div id="header">
 	<h1 id="title">CapyContacts</h1>
 	<picture>
@@ -23,16 +23,18 @@
 	</picture>
 </div>
 	
-
 <main>
-<div id="loginDiv">
-	<h2 class="inner-title">Log In Here!</h2>
-	<input type="text" id="loginName" placeholder="Username" />
-	<input type="password" id="loginPassword" placeholder="Password"/>
-	<button type="button" id="loginButton" class="buttons" onclick="doLogin();"> Login </button>
-	<h2 class="inner-title">Join The Herd And Register Here!</h2>
-	<button type="button" id="registerButton" class="buttons" onclick="redirect('registerPage.html');"> Register </button>
-	<span id="loginResult"></span>
+<div id="registerDiv">
+	<h2 class="inner-title">Join The Herd!</h2>
+	<input type="text" id="registerFirstName" placeholder="First Name" />
+	<input type="text" id="registerLastName" placeholder="Last Name" />
+	<input type="text" id="registerUsername" placeholder="Username" />
+	<input type="password" id="registerPassword" placeholder="Password"/>
+	<div class="adjacentBox">
+		<button class="buttons" id="loginButton" class="buttons" onclick="redirect('index.html');"> Existing User </button>
+		<button class="buttons" id="registerButton" class="buttons" onclick="doRegister();"> Register </button>
+	</div>
+	<span id="registerResult"></span>
 </div>
 </main>
 

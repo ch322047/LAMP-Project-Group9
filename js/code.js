@@ -62,6 +62,11 @@ function doLogin()
 
 }
 
+
+function redirect(page){
+	window.location.href = page;
+}
+
 function doRegister(){
 	//clearing these values and initialzing global variables
 	userId = 0;
@@ -176,6 +181,7 @@ function readCookie()
 	}
 }
 
+// Logout the user and return to the login page
 function doLogout()
 {
 	userId = 0;
@@ -185,14 +191,56 @@ function doLogout()
 	window.location.href = "index.html";
 }
 
+// addContact will either add a contact with the given information or modify an existing contact to use the given information
+// based on the value of modifyId.
 function addContact()
 {
-	let fName = document.getElementById("fNameText").value;
-	let lName = document.getElementById("lNameText").value;
-	let newPhone = document.getElementById("phoneText").value;
-	let newEmail = document.getElementById("emailText").value;
+	// get references to fields
+	let fNameBox = document.getElementById("fNameText");
+	let lNameBox = document.getElementById("lNameText");
+	let phoneBox = document.getElementById("phoneText");
+	let emailBox = document.getElementById("emailText");
+
+	// get contents of fields
+	let fName = fNameBox.value;
+	let lName = lNameBox.value;
+	let newPhone = phoneBox.value;
+	let newEmail = emailBox.value;
 	document.getElementById("contactAddResult").innerHTML = "";
 
+	// validate data before contacting server
+
+	fieldsValid = true;
+	
+	// validate first name (last name should be optional)
+	if (fName == "") {
+		fNameBox.classList.add("invalidField");
+		fieldsValid = false;
+	} else {
+		fNameBox.classList.remove("invalidField");
+	}
+
+	// validate phone
+	if (!(/^[0-9]{3}-[0-9]{2,3}-[0-9]{3,4}$/.test(newPhone))) {
+		phoneBox.classList.add("invalidField");
+		fieldsValid = false;
+	} else {
+		phoneBox.classList.remove("invalidField");
+	}
+
+	// validate email
+	if (!(/^[^@\s]+@[^@\s]+\.[^@\s]+$/i.test(newEmail))) {
+		emailBox.classList.add("invalidField");
+		fieldsValid = false;
+	} else {
+		emailBox.classList.remove("invalidField");
+	}
+
+	// if any fields are invalid, do not send!
+	if (!fieldsValid) {
+		return;
+	}
+	
 	// Determine whether to add or edit based on modifyId
 	if (modifyId == null) {
 		// Add a new contact
@@ -211,6 +259,11 @@ function addContact()
 				if (this.readyState == 4 && this.status == 200) 
 				{
 					document.getElementById("contactAddResult").innerHTML = "Contact has been added";
+					setTimeout(function() {
+						document.getElementById("contactAddResult").innerHTML = "";
+					}, 3000);
+					searchContact(); // update table
+					hideAddContactMenu(); // close menu
 				}
 			};
 			xhr.send(jsonPayload);
@@ -221,7 +274,7 @@ function addContact()
 		}
 	} else {
 		// Modify an existing contact
-		let tmp = {newFirstName:fName,newLastName:lName,newPhone:newPhone,newEmail:newEmail,contactId:modifyId};
+		let tmp = {newFirstName:fName,newLastName:lName,newPhone:newPhone,newEmail:newEmail,userId:userId,contactId:modifyId};
 		let jsonPayload = JSON.stringify( tmp );
 
 		let url = urlBase + '/UpdateContact.' + extension;
@@ -235,6 +288,11 @@ function addContact()
 				if (this.readyState == 4 && this.status == 200) 
 				{
 					document.getElementById("contactAddResult").innerHTML = "Contact has been updated";
+					setTimeout(function() {
+						document.getElementById("contactAddResult").innerHTML = "";
+					}, 3000);
+					searchContact(); // update table
+					hideAddContactMenu(); // close menu
 				}
 			};
 			xhr.send(jsonPayload);
@@ -281,12 +339,13 @@ function searchContact()
 								<th>Last Name</th>
 								<th>Phone</th>
 								<th>Email</th>
-								<th>Delete</th>
 								<th>Edit</th>
+								<th>Delete</th>
 							</tr>
 					`;
 
-					for (let i = 0; i < jsonObject.results.length; i++)
+					let maxDisplay = Math.min(5, jsonObject.results.length);
+					for (let i = 0; i < maxDisplay; i++)
 					{
 						let entry = jsonObject.results[i];
 
@@ -299,18 +358,18 @@ function searchContact()
 								<td>
   									<button
 									type="button"
-    								class="buttons"    
-									onclick="editContact(${entry.ContactId})">
-									Edit Contact
+    								class="buttons iconButtons"    
+									onclick="editContact(${entry.ContactId},'${entry.FirstName}','${entry.LastName}','${entry.Phone}','${entry.Email}')">
+									<img src="images/svg/edit-3.svg" alt="Edit">
   									</button>
 								</td>
 								
 								<td>
   									<button
 									type="button"
-    								class="buttons"    
+    								class="buttons iconButtons"    
 									onclick="deleteContact(${entry.ContactId})">
-									Delete Contact
+									<img src="images/svg/trash-2.svg" alt="Delete">
   									</button>
 								</td>
 
@@ -346,15 +405,42 @@ function searchContact()
 // Edit a contact, called from the edit button next to each entry
 // This function will NOT edit a contact, it will simply fill in the add contact fields with the contact's information.
 // UpdateContact.php will instead be called from addContact, if "modifyId" is not null.
-function editContact(ContactId){
+function editContact(ContactId, FirstName, LastName, Phone, Email){
 
+	// show contact menu
+	revealAddContactMenu();
+	
 	// set modifyId to ContactId of the selected contact
 	modifyId = ContactId;
 	
 	// Fill in the contact fields with the existing contact information
+	document.getElementById("fNameText").value = FirstName;
+	document.getElementById("lNameText").value = LastName;
+	document.getElementById("phoneText").value = Phone;
+	document.getElementById("emailText").value = Email;
+}
 
+// Open menu to add a new contact
+// This is NOT the same as addContact, which actually adds the new contact.
+// This function wipes the fields clear and brings up the menu
+function revealAddContactMenu() {
 
+	// reveal
+	document.getElementById("contactFieldsBox").hidden=false;
 	
+	// set modifyId to null
+	modifyId = null;
+
+	// wipe fields
+	document.getElementById("fNameText").value = "";
+	document.getElementById("lNameText").value = "";
+	document.getElementById("phoneText").value = "";
+	document.getElementById("emailText").value = "";
+}
+
+// hide the contactFieldsBox
+function hideAddContactMenu() {
+	document.getElementById("contactFieldsBox").hidden=true;
 }
 
 

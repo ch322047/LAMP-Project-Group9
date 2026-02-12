@@ -1,126 +1,235 @@
 body 
 {
-    background-color: #707070;
+    background-color: #606C38;
+    color: #FEFAE0;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.4;
+    letter-spacing: 0.2px;
 }
 
 #title 
 {
-    font-size: 40px;
+    font-size: 3vw;
     width: 100%;
-    margin: 2% 5%;
     text-align: center;
-    font-family: 'Ubuntu', sans-serif;
-    color: #FFFFFF;
+    color: #FEFAE0;
 }
 
-#loginDiv
-{
-    font-size: 30px;
+#header {
+    text-align: center;
+    margin-bottom: 0.5%;
+}
+
+#logo {
+    display: block;
+    margin: 0 auto;
+    width: 10vw;
+    /*max-width: 160px;
+    min-width: 80px;*/
+}
+
+#loginDiv {
+    font-size: 2.5vw;
     width: 70%;
-    margin-left: 15%;
+    margin: 0 auto;
+    padding: 2vw;
+    background-color: #BC6C25;
+    text-align: center;
+}
+
+#registerDiv {
+    font-size: 2.5vw;
+    width: 70%;
+    margin: 0 auto;
     padding: 25px;
-    background-color: #b2b2b2;
+    background-color: #BC6C25;
+    text-align: center;
 }
 
 #loggedInDiv
 {
-    font-size: 30px;
+    font-size: 2.3vw;
     width: 70%;
-    margin-left: 15%;
-    padding: 25px;
-    background-color: #b2b2b2;
+    margin: 0 auto;      /* ← THIS */
+    padding: 2vw 2vw 0 2vw;
+    background-color: #BC6C25;
+    text-align: center; /* optional but recommended */
 }
+
 
 #accessUIDiv
 {
-    font-size: 30px;
+    font-size: 2.3vw;
     width: 70%;
-    margin-left: 15%;
-    padding: 25px;
-    background-color: #b2b2b2;
+    margin: 0 auto;      /* ← THIS */
+    padding: 2vw;
+    background-color: #BC6C25;
+    text-align: center; /* optional but recommended */
 }
 
-.buttons
-{
-    font-size: 30px;
-    border-radius: 25px;
-    width: 50%;
-    margin-left: 25%;
-    font-family: 'Ubuntu', sans-serif;
+#contactFieldsBox {
+	position: fixed;
+	font-size: 2vw;
+    padding: 2vw;
+    background-color: #283618;
+    text-align: center; /* optional but recommended */
+	top: 5vw;
+	bottom: 5vw;
+	left: 5vw;
+	right: 5vw;
+	align-self: center;
+	z-index: 100;
 }
+
+.adjacentBox {
+	display: flex;
+	justify-content: center;
+}
+.adjacentBox > div {
+	width: 40%;
+}
+
+#searchDiv {
+    display: flex;
+	width: 100%;
+}
+
+#searchDiv * {
+	align-self: center;
+	margin: 0;
+}
+
+
+table {
+	font-size: 1.5vw;
+	width: 100%;
+	background-color: white;
+	color: black;
+}
+th{
+	color: white;
+	background-color: DarkSlateGray;
+}
+tr:nth-child(odd) {
+	background-color: Gainsboro;
+}
+
+
+.buttons {
+    font-weight: 500;
+    font-size: 2.5vw;
+    border-radius: 50px;
+    width: 50%;
+    background-color: #606C38;
+    color: #FEFAE0;
+    border: 0.2vw solid black;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.iconButtons{
+	text-wrap-mode: nowrap;
+	width: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0.5vw;
+}
+
+/* clamp(min, preferred, max) works with anything size related */
+/* Using > targets the children of the class and the type after 
+    filters which type of children are we styling */
+.iconButtons > img{
+	width: 2.3vw;
+	height: 2.3vw;
+	/*width: clamp(28px, 3.2vw, 48px);
+	height: clamp(22px, 2.3vw, 40px);*/
+	object-fit: contain;
+}
+
+/* edit & delete buttons */
+td > .iconButtons > img {
+    width: 1.8vw;
+    height: 1.8vw;
+	padding: 0.5vw;
+}
+
 
 .buttons:hover{
     background-color: #00d5124f;
-    color: #FFFFFF;
+    color: #306e2b;
     opacity: 50%;
 }
 
 #loginName
 {
-	font-size: 30px;
+	font-size: 2vw;
 }
 #loginPassword
 {
-	font-size: 30px;
+	font-size: 2vw;
 }
 #searchText
 {
-	font-size: 30px;
+	width:100%;
+	font-size: 2vw;
 }
 .textField
 {
-	font-size: 30px;
+	font-size: 2vw;
 }
 
-input[type="text"],input[type="password"]{
-    border-radius: 25px;
+::placeholder { /* text field hints */
+	color: LightGray;
+}
+
+input[type="text"],input[type="password"],input[type="tel"]
+{
+    border-radius: 7.5vw;
     text-align: center;
     width: 80%;
-    margin-left: 10%;
     margin-bottom: 2%;
-    font-family: 'Ubuntu', sans-serif;
+    padding: 0.15em;
+    font-size: 2vw;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
 }
 
-#inner-title{
-    display: inline-block;
-    font-size: 0.8em;
-    width: 90%;
+.inner-title {
+    display: block;
     text-align: center;
-    margin-left: 5%;
+    font-size: 0.8em;
     margin-bottom: 2%;
-    font-family: 'Ubuntu', sans-serif;
-    color: #95060a;
+    color: #FEFAE0;
 }
+
 
 #loginResult{
     display: inline-block;
     font-size: 0.8em;
     width: 90%;
     text-align: center;
-    margin-left: 5%;
     margin-bottom: 2%;
-    font-family: 'Ubuntu', sans-serif;
     color: #95060a;
 }
 
 #userName{
     display: inline-block;
     width: 80%;
-    margin-left: 10%;
     text-align: center;
 }
 
 #logoutButton{
     width: 20%;
-    margin-left: 40%;
 }
 
 select{
     width: 30%;
-    margin-left: 35%;
     margin-top: 2%;
     font-size: 0.75em;
-    font-family: 'Ubuntu', sans-serif;
 }
 
 #contactSearchResult{
@@ -128,13 +237,25 @@ select{
 }
 
 #contactAddResult{
-    display: inline-block;
+    display: block;
     font-size: 0.8em;
     width: 90%;
     text-align: center;
-    margin-left: 5%;
     margin-top: 2%;
     margin-bottom: 1%;
-    font-family: 'Ubuntu', sans-serif;
     color: #95060a;
+    min-height: 1.2em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.invalidField
+{
+	background-color: LightPink;
+	border-color: red;
+}
+.validField
+{
+	border-color: green;
 }
