@@ -149,10 +149,9 @@ tr:nth-child(odd) {
 }
 
 /* edit & delete buttons */
-.iconButtons > img {
-    width: 2.3vw;
-    height: 2.3vw;
-    object-fit: contain;
+td > .iconButtons > img {
+    width: 1.8vw;
+    height: 1.8vw;
 }
 
 
