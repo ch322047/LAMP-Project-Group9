@@ -165,7 +165,7 @@ tr:nth-child(odd) {
 }
 #searchText
 {
-	width:90%;
+	width:100%;
 	font-size: 2vw;
 }
 .textField
