@@ -18,12 +18,39 @@ function doLogin()
 	let login = document.getElementById("loginName").value;
 	let password = document.getElementById("loginPassword").value;
 //	var hash = md5( password );
-	
+
 	document.getElementById("loginResult").innerHTML = "";
 
 	let tmp = {login:login,password:password};
 //	var tmp = {login:login,password:hash};
 	let jsonPayload = JSON.stringify( tmp );
+
+	
+	// validate neither fields are blank
+	fieldsValid = true;
+	
+	// validate username
+	if (login == "") {
+		fNameBox.classList.add("invalidField");
+		fieldsValid = false;
+	} else {
+		fNameBox.classList.remove("invalidField");
+	}
+
+	// validate password
+	if (password == "") {
+		fNameBox.classList.add("invalidField");
+		fieldsValid = false;
+	} else {
+		fNameBox.classList.remove("invalidField");
+	}
+
+	// if any fields are blank, do not send data to login
+	if (!fieldsValid) {
+		document.getElementById("loginResult").innerHTML = "Please enter Username and Password.";
+		return;
+	}
+
 	
 	let url = urlBase + '/Login.' + extension;
 
@@ -41,7 +68,7 @@ function doLogin()
 		
 				if( userId < 1 )
 				{		
-					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
+					document.getElementById("loginResult").innerHTML = "Incorrect Username or Password.";
 					return;
 				}
 		
