@@ -93,6 +93,22 @@ function doLogin()
 }
 
 
+/*
+Found how to do this online!
+https://stackoverflow.com/questions/7060750/detect-the-enter-key-in-a-text-input-field
+
+Detects enter press on login field. Acts as pressing the login button
+*/
+
+$("#loginPassword").on('keyup', function (k) {
+	if (k.key === 'Enter' || k.keyCode === 13) { /* keyCode is depricated, allows support for older browsers */
+		doLogin();
+	}
+});
+
+
+
+
 function redirect(page){
 	window.location.href = page;
 }
