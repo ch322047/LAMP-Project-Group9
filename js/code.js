@@ -96,10 +96,16 @@ function doLogin()
 /*
 Found how to do this online!
 https://stackoverflow.com/questions/7060750/detect-the-enter-key-in-a-text-input-field
-
-Detects enter press on login field. Acts as pressing the login button
 */
-
+// Pressing Enter will advance focus
+document.getElementsByClassName("advanceFocus").forEach(field => {
+		field.addEventListener('keyup', function (k) {
+			if (k.key === 'Enter' || k.keyCode === 13) { /* keyCode is depricated, allows support for older browsers */
+				this.next().focus();
+			}
+	});
+});
+// Detects enter press on login field. Acts as pressing the login button
 document.getElementById("loginPassword").addEventListener('keyup', function (k) {
 	if (k.key === 'Enter' || k.keyCode === 13) { /* keyCode is depricated, allows support for older browsers */
 		doLogin();
