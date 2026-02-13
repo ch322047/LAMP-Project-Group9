@@ -101,7 +101,7 @@ https://stackoverflow.com/questions/7060750/detect-the-enter-key-in-a-text-input
 document.querySelectorAll(".advanceFocus").forEach(field => {
 	field.addEventListener('keyup', function (k) {
 		if (k.key === 'Enter' || k.keyCode === 13) { /* keyCode is depricated, allows support for older browsers */
-			this.next().focus();
+			field.next().focus();
 		}
 	});
 });
