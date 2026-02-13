@@ -14,9 +14,12 @@ function doLogin()
 	userId = 0;
 	firstName = "";
 	lastName = "";
+
+	let loginBox = document.getElementById("loginName");
+	let passwordBox = document.getElementById("loginPassword");
 	
-	let login = document.getElementById("loginName").value;
-	let password = document.getElementById("loginPassword").value;
+	let login = loginBox.value;
+	let password = passwordBox.value;
 //	var hash = md5( password );
 
 	document.getElementById("loginResult").innerHTML = "";
@@ -31,18 +34,18 @@ function doLogin()
 	
 	// validate username
 	if (login == "") {
-		fNameBox.classList.add("invalidField");
+		loginBox.classList.add("invalidField");
 		fieldsValid = false;
 	} else {
-		fNameBox.classList.remove("invalidField");
+		loginBox.classList.remove("invalidField");
 	}
 
 	// validate password
 	if (password == "") {
-		fNameBox.classList.add("invalidField");
+		passwordBox.classList.add("invalidField");
 		fieldsValid = false;
 	} else {
-		fNameBox.classList.remove("invalidField");
+		passwordBox.classList.remove("invalidField");
 	}
 
 	// if any fields are blank, do not send data to login
