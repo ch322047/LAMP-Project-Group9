@@ -30,27 +30,38 @@ function doLogin()
 
 	
 	// validate neither fields are blank
-	fieldsValid = true;
-	
-	// validate username
-	if (login == "") {
+	let fieldsValid = true;
+	let errorMessages = [];
+
+	// Validate username (min 8 characters, max 20 characters)
+	if (login == "" || login.length > 20) {
 		loginBox.classList.add("invalidField");
 		fieldsValid = false;
+        if (login == "" || login.length < 8) {
+			errorMessages.push("Username must be at least 8 characters");
+		} else if (login.length > 20) {
+			errorMessages.push("Username must be 20 characters or less");
+		}
 	} else {
 		loginBox.classList.remove("invalidField");
 	}
 
 	// validate password
-	if (password == "") {
+	if (password.length < 8 || password.length > 20) {
 		passwordBox.classList.add("invalidField");
 		fieldsValid = false;
+        if (password == "" || password.length < 8) {
+			errorMessages.push("Password must be at least 8 characters");
+		} else if (password.length > 20) {
+			errorMessages.push("Password must be 20 characters or less");
+		}
 	} else {
 		passwordBox.classList.remove("invalidField");
 	}
 
 	// if any fields are blank, do not send data to login
 	if (!fieldsValid) {
-		document.getElementById("loginResult").innerHTML = "Please enter Username and Password.";
+		document.getElementById("loginResult").innerHTML = errorMessages.join("<br>");
 		return;
 	}
 
@@ -124,13 +135,89 @@ function doRegister(){
 	lastName = "";
 	
 	//gets the text typed into these fields for the local variables
-	let fName = document.getElementById("registerFirstName").value;
-	let lName = document.getElementById("registerLastName").value;
-	let login = document.getElementById("registerUsername").value;
-	let password = document.getElementById("registerPassword").value;
+	let fNameBox = document.getElementById("registerFirstName");
+	let lNameBox = document.getElementById("registerLastName");
+	let loginBox = document.getElementById("registerUsername");
+	let passwordBox = document.getElementById("registerPassword");
+    
+    //gets the text typed into these fields for the local variables
+	let fName = fNameBox.value;
+	let lName = lNameBox.value;
+	let login = loginBox.value;
+	let password = passwordBox.value;
 //	var hash = md5( password );
 	
 	//clears any old login failed messages
+	document.getElementById("registerResult").innerHTML = "Registering...";
+
+        // Validate all fields
+    let fieldsValid = true;
+    let errorMessages = [];
+
+    // Copied logic from login validartion.
+    // Validate first name only, 1-20 characters
+    if (fName == "" || !/^[A-Za-z]{1,20}$/.test(fName)) {
+        fNameBox.classList.add("invalidField");
+        fieldsValid = false;
+        if (fName == "") {
+			errorMessages.push("First name is required");
+		} else if (!/^[A-Za-z]+$/.test(fName)) {
+			errorMessages.push("First name must contain only letters");
+		} else if (fName.length > 20) {
+			errorMessages.push("First name must be 20 characters or less");
+		}
+    } else {
+        fNameBox.classList.remove("invalidField");
+    }
+    
+    // Validate last name letters only, 1-20 characters
+    if (lName == "" || !/^[A-Za-z]{1,20}$/.test(lName)) {
+        lNameBox.classList.add("invalidField");
+        fieldsValid = false;
+        if (lName == "") {
+			errorMessages.push("Last name is required");
+		} else if (!/^[A-Za-z]+$/.test(lName)) {
+			errorMessages.push("Last name must contain only letters");
+		} else if (lName.length > 20) {
+			errorMessages.push("Last name must be 20 characters or less");
+		}
+    } else {
+        lNameBox.classList.remove("invalidField");
+    }
+    
+    // Validate username not empty and max 20 chars
+    if (login == "" || login.length > 20) {
+        loginBox.classList.add("invalidField");
+        fieldsValid = false;
+        if (login == "" ) {
+			errorMessages.push("Username is required");
+		} else if (login.length > 20) {
+			errorMessages.push("Username must be 20 characters or less");
+		}
+    } else {
+        loginBox.classList.remove("invalidField");
+    }
+    
+    // Validate password 8 to 20 chars
+    if (password.length < 8 || password.length > 20) {
+        passwordBox.classList.add("invalidField");
+        fieldsValid = false;
+        if (password.length < 8) {
+			errorMessages.push("Password must be at least 8 characters");
+		} else if (password.length > 20) {
+			errorMessages.push("Password must be 20 characters or less");
+		}
+    } else {
+        passwordBox.classList.remove("invalidField");
+    }
+    
+    // If any fields are invalid, show error message and return
+    if (!fieldsValid) {
+        document.getElementById("registerResult").innerHTML = errorMessages.join("<br>");
+        return;
+    }
+
+	//displays registering message
 	document.getElementById("registerResult").innerHTML = "Registering...";
 
 	//create the data to send to the server into a JSON string
@@ -168,7 +255,7 @@ function doRegister(){
 					document.getElementById("registerResult").innerHTML = jsonObject.error || "Unable to register/sign up";
 					return;
 				}
-		
+                
 				//saving user info
 				firstName = jsonObject.firstName;
 				lastName = jsonObject.lastName;

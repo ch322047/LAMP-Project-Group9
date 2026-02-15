@@ -258,9 +258,15 @@ select{
     margin-right: auto;
 }
 
-
 .invalidField
 {
+    /* !important makes it be on top of the regular non invalid version */
+    border: 0.15vw solid #dc3545 !important;
+    background-image: url('../images/svg/alert-circle.svg');
+    background-repeat: no-repeat;
+    background-position: right 1vw center;
+    background-size: 1.5vw 1.5vw;
+    padding-right: 3vw;
 	background-color: LightPink;
 	border-color: red;
 }
