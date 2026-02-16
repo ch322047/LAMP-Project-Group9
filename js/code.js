@@ -499,6 +499,16 @@ function updatePage() {
 	// update page label
 	document.getElementById("pageLabel").innerHTML = `Page ${currentPage} of ${pages}`;
 
+
+	// if no content exists, do not create the table and hide page buttons
+	if(jsonObjectResult.results.length == 0) {
+		document.getElementById("pagesDiv").hidden = true;
+		document.getElementsById("contactList").innerHTML = ``;
+		return;
+	}
+	// reveal page buttons if hidden
+	document.getElementById("pagesDiv").hidden = false;
+	
 	// Only display contacts up to pageLength
 	let maxDisplay = Math.min(pageLength, jsonObjectResult.results.length);
 
@@ -553,7 +563,7 @@ function updatePage() {
 	tableHTML += "</table>";
 
 	// Put table on the page
-	document.getElementsByTagName("p")[0].innerHTML = tableHTML;
+	document.getElementsById("contactList").innerHTML = tableHTML;
 	
 }
 
