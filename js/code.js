@@ -621,6 +621,16 @@ function pageNext() {
 	updatePage();
 }
 
+// jump to the entered page. if less than 1, jump to last page - that number
+function jumpPage(num) {
+	if (num < 1) {
+		currentPage = pages-num;
+	} else {
+		currentPage = num;
+	}
+	updatePage();
+}
+
 
 // Edit a contact, called from the edit button next to each entry
 // This function will NOT edit a contact, it will simply fill in the add contact fields with the contact's information.
