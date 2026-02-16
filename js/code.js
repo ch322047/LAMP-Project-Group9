@@ -37,8 +37,8 @@ function doLogin()
 	if (login == "" || login.length > 20) {
 		loginBox.classList.add("invalidField");
 		fieldsValid = false;
-        if (login == "" || login.length < 8) {
-			errorMessages.push("Username must be at least 8 characters");
+        if (login == "") {
+			errorMessages.push("Username is required");
 		} else if (login.length > 20) {
 			errorMessages.push("Username must be 20 characters or less");
 		}
