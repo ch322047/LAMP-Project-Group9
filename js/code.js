@@ -5,6 +5,11 @@ let userId = 0;
 let firstName = "";
 let lastName = "";
 
+/* pageLength describes how many entries can be displayed on one page
+This is a variable instead of a constant as users may be allowed to modify preferences in a "later version".
+*/
+let pageLength = 15;
+
 // If the user is modifying an existing contact, modifyId will equal that contact's Id.
 // Otherwise, modifyId will be null (adds a new contact with given information)
 let modifyId = null;
@@ -481,7 +486,7 @@ function searchContact()
 							</tr>
 					`;
 
-					let maxDisplay = Math.min(5, jsonObject.results.length);
+					let maxDisplay = Math.min(pageLength, jsonObject.results.length);
 					for (let i = 0; i < maxDisplay; i++)
 					{
 						let entry = jsonObject.results[i];
