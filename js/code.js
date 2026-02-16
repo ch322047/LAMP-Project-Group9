@@ -47,11 +47,11 @@ function doLogin()
 	}
 
 	// validate password
-	if (password.length < 8 || password.length > 20) {
+	if (password.length == "" || password.length > 20) {
 		passwordBox.classList.add("invalidField");
 		fieldsValid = false;
-        if (password == "" || password.length < 8) {
-			errorMessages.push("Password must be at least 8 characters");
+        if (password == "") {
+			errorMessages.push("Password is required");
 		} else if (password.length > 20) {
 			errorMessages.push("Password must be 20 characters or less");
 		}
@@ -199,11 +199,11 @@ function doRegister(){
     }
     
     // Validate password 8 to 20 chars
-    if (password.length < 8 || password.length > 20) {
+    if (password.length < 7 || password.length > 20) {
         passwordBox.classList.add("invalidField");
         fieldsValid = false;
-        if (password.length < 8) {
-			errorMessages.push("Password must be at least 8 characters");
+        if (password.length < 7) {
+			errorMessages.push("Password must be at least 7 characters");
 		} else if (password.length > 20) {
 			errorMessages.push("Password must be 20 characters or less");
 		}
