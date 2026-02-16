@@ -27,6 +27,13 @@ body
     /*max-width: 160px;
     min-width: 80px;*/
 }
+#logoSmall {
+    display: block;
+    margin: 0 auto;
+    width: 6vw;
+    /*max-width: 160px;
+    min-width: 80px;*/
+}
 
 #loginDiv {
     font-size: 2.5vw;
@@ -51,7 +58,7 @@ body
     font-size: 2.3vw;
     width: 70%;
     margin: 0 auto;      /* ← THIS */
-    padding: 2vw 2vw 0 2vw;
+    padding: 2vw 0.5vw 0 2vw;
     background-color: #BC6C25;
     text-align: center; /* optional but recommended */
 }
@@ -59,7 +66,7 @@ body
 
 #accessUIDiv
 {
-    font-size: 2.3vw;
+    font-size: 1.8vw;
     width: 70%;
     margin: 0 auto;      /* ← THIS */
     padding: 2vw;
@@ -111,7 +118,7 @@ body
 
 
 table {
-	font-size: 1.5vw;
+	font-size: 1.3vw;
 	width: 100%;
 	background-color: white;
 	color: black;
@@ -127,7 +134,7 @@ tr:nth-child(odd) {
 
 .buttons {
     font-weight: 500;
-    font-size: 2.5vw;
+    font-size: 2vw;
     border-radius: 50px;
     width: 50%;
     background-color: #606C38;
@@ -160,9 +167,9 @@ tr:nth-child(odd) {
 
 /* edit & delete buttons */
 td > .iconButtons > img {
-    width: 1.8vw;
-    height: 1.8vw;
-	padding: 0.5vw;
+    width: 1.3vw;
+    height: 1.3vw;
+	padding: 0.2vw;
 }
 
 
