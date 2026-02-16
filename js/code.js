@@ -8,7 +8,9 @@ let lastName = "";
 /* pageLength describes how many entries can be displayed on one page
 This is a variable instead of a constant as users may be allowed to modify preferences in a "later version".
 */
-let pageLength = 15;
+let pageLength = 2;
+let pages = 1; // how many pages to show
+let currentPage = 1; // current viewed page
 
 // If the user is modifying an existing contact, modifyId will equal that contact's Id.
 // Otherwise, modifyId will be null (adds a new contact with given information)
@@ -486,7 +488,14 @@ function searchContact()
 							</tr>
 					`;
 
+					pages = Math.ceil(jsonObject.results.length / pageLength); // get amount of pages
+					currentPage = 1; // return to page 1
+					document.getElementById("pageLabel").innerHTML = `Page ${currentPage} of ${pages}`;
+					
+					// Only display contacts up to pageLength
 					let maxDisplay = Math.min(pageLength, jsonObject.results.length);
+
+					// Create the chart
 					for (let i = 0; i < maxDisplay; i++)
 					{
 						let entry = jsonObject.results[i];
