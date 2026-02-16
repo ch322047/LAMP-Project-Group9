@@ -410,7 +410,8 @@ function addContact()
 						document.getElementById("contactAddResult").innerHTML = "";
 					}, 3000);
 					searchContact(); // update table
-					//updatePage(); // update table
+					currentPage = pages; // jump to last page
+					updatePage(); // update table
 					hideAddContactMenu(); // close menu
 				}
 			};
@@ -440,8 +441,6 @@ function addContact()
 						document.getElementById("contactAddResult").innerHTML = "";
 					}, 3000);
 					searchContact(); // update table
-					currentPage = pages; // jump to last page
-					updatePage(); // update table
 					hideAddContactMenu(); // close menu
 				}
 			};
