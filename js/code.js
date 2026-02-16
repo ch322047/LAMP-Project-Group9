@@ -502,7 +502,7 @@ function updatePage() {
 
 
 	// if no content exists, do not create the table and hide page buttons
-	if(!jsonObjectResult || jsonObjectResult.results.length == 0) {
+	if(!jsonObjectResult.results || jsonObjectResult.results.length == 0) {
 		document.getElementById("pagesDiv").hidden = true;
 		document.getElementById("contactList").innerHTML = ``;
 		return;
