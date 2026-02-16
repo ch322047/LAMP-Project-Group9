@@ -552,7 +552,7 @@ function searchContact()
 				}
 
 				// Put table on the page
-				document.getElementsByTagName("p")[0].innerHTML = tableHTML;
+				//document.getElementsByTagName("p")[0].innerHTML = tableHTML;
 			}
 		};
 
@@ -624,6 +624,9 @@ function updatePage() {
 
 	// End table
 	tableHTML += "</table>";
+
+	// Put table on the page
+	document.getElementsByTagName("p")[0].innerHTML = tableHTML;
 	
 }
 
