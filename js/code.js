@@ -474,7 +474,7 @@ function searchContact()
 		{
 			if (this.readyState == 4 && this.status == 200)
 			{
-				let jsonObjectResult = JSON.parse(xhr.responseText);
+				jsonObjectResult = JSON.parse(xhr.responseText);
 
 				if (jsonObjectResult.results && jsonObjectResult.results.length > 0)
 				{
