@@ -143,6 +143,10 @@ tr:nth-child(odd) {
 	background-color: Gainsboro;
 }
 
+#contactList {
+	margin: 0;
+}
+
 
 .buttons {
     font-weight: 500;
