@@ -567,6 +567,7 @@ function revealAddContactMenu() {
 
 	// remove main page from focus path
 	document.getElementById("accessUIDiv").setAttribute("inert","");
+	document.getElementById("loggedInDiv").setAttribute("inert","");
 
 	
 	// set modifyId to null
@@ -585,6 +586,7 @@ function hideAddContactMenu() {
 
 	// add main page to focus path
 	document.getElementById("accessUIDiv").removeAttribute("inert");
+	document.getElementById("loggedInDiv").removeAttribute("inert");
 }
 
 
