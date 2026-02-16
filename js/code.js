@@ -454,10 +454,17 @@ function addContact()
 	
 }
 
+
+// search function to be called from the html. Returns to page 1
+function searchQuery() {
+	currentPage = 1; // return to page 1
+	searchContact(); // perform the search
+}
+
+
 function searchContact()
 {
 	let srch = document.getElementById("searchText").value;
-	document.getElementById("contactSearchResult").innerHTML = "";
 
 	let tableHTML = "";
 
@@ -482,11 +489,18 @@ function searchContact()
 				{
 
 					pages = Math.ceil(jsonObjectResult.results.length / pageLength); // get amount of pages
-					currentPage = 1; // return to page 1
+					if(currentPage > pages) currentPage = pages; // keep in bounds
 
-
-					document.getElementById("contactSearchResult").innerHTML =
-						`Found ${jsonObjectResult.results.length} contacts`;
+					// display search result message
+					if (srch == "") {
+						// empty search counts as "display all"
+						document.getElementById("contactSearchResult").innerHTML =
+							`Showing all ${jsonObjectResult.results.length} contacts`;
+					} else {
+						// show how many contacts were found
+						document.getElementById("contactSearchResult").innerHTML =
+							`Found ${jsonObjectResult.results.length} contacts`;
+					}
 				}
 				else
 				{
