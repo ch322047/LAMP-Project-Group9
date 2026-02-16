@@ -10,7 +10,7 @@ body
 #title 
 {
     font-size: 3vw;
-    width: 100%;
+    /*width: 100%;*/
     text-align: center;
     color: #FEFAE0;
 }
