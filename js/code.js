@@ -491,7 +491,7 @@ function searchContact()
 							</tr>
 					`;
 
-					pages = Math.ceil(jsonObject.results.length / pageLength); // get amount of pages
+					pages = Math.ceil(jsonObjectResult.results.length / pageLength); // get amount of pages
 					currentPage = 1; // return to page 1
 
 					updatePage();
