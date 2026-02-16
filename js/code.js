@@ -44,7 +44,7 @@ function doLogin()
 	let errorMessages = [];
 
 	// Validate username (min 8 characters, max 20 characters)
-	if (login == "" || login.length > 20) {
+	if (/^[ ]*/.test(login) || login.length > 20) {
 		loginBox.classList.add("invalidField");
 		fieldsValid = false;
         if (login == "") {
@@ -57,7 +57,7 @@ function doLogin()
 	}
 
 	// validate password
-	if (password.length == "" || password.length > 20) {
+	if (/^[ ]*/.test(password) || password.length > 20) {
 		passwordBox.classList.add("invalidField");
 		fieldsValid = false;
         if (password == "") {
@@ -114,31 +114,12 @@ function doLogin()
 }
 
 
-/*
-Found how to do this online!
-https://stackoverflow.com/questions/7060750/detect-the-enter-key-in-a-text-input-field
 
-// Detects enter press on username field. Sends focus to the password box
-document.getElementById("loginName").addEventListener('keyup', function (k) {
-	if (k.key === 'Enter' || k.keyCode === 13) { // keyCode is depricated, allows support for older browsers
-		document.getElementById("loginPassword").focus();
-	}
-});
-// Detects enter press on password field. Acts as pressing the login button
-document.getElementById("loginPassword").addEventListener('keyup', function (k) {
-	if (k.key === 'Enter' || k.keyCode === 13) { // keyCode is depricated, allows support for older browsers
-		doLogin();
-	}
-});
-
-*/
-
-
-
-
+// redirect to a different page
 function redirect(page){
 	window.location.href = page;
 }
+
 
 function doRegister(){
 	//clearing these values and initialzing global variables
@@ -363,7 +344,7 @@ function addContact()
 	fieldsValid = true;
 	
 	// validate first name (last name should be optional)
-	if (fName == "") {
+	if (/^[ ]*/.test(fName)) {
 		fNameBox.classList.add("invalidField");
 		fieldsValid = false;
 	} else {
@@ -658,6 +639,13 @@ function hideAddContactMenu() {
 
 	// set focus to search bar
 	document.getElementById("searchText").focus();
+
+	// clear invalid field classes
+	document.getElementById("fNameText").classList.remove("invalidField");
+	document.getElementById("lNameText").classList.remove("invalidField");
+	document.getElementById("phoneText").classList.remove("invalidField");
+	document.getElementById("emailText").classList.remove("invalidField");
+	
 }
 
 
