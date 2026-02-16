@@ -361,10 +361,10 @@ function addContact()
 
 	// validate last name (must NOT contain a `\`)
 	if (/\\/.test(lName)) {
-		LNameBox.classList.add("invalidField");
+		lNameBox.classList.add("invalidField");
 		fieldsValid = false;
 	} else {
-		LNameBox.classList.remove("invalidField");
+		lNameBox.classList.remove("invalidField");
 	}
 
 	// validate phone
