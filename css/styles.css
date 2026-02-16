@@ -120,6 +120,10 @@ picture {
 	margin: 0;
 }
 
+div#pagesDiv {
+	width: 50%;
+	justify-self: center;
+}
 
 table {
 	font-size: 1.2vw;
