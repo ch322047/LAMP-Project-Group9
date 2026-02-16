@@ -205,10 +205,6 @@ td > .iconButtons > img {
 	font-size: 2vw;
 }
 
-::placeholder { /* text field hints */
-	/*color: LightGray;*/
-}
-
 input[type="text"],input[type="password"],input[type="tel"]
 {
     border-radius: 7.5vw;
@@ -257,7 +253,7 @@ select{
 }
 
 #contactSearchResult{
-    display: none;
+    /*display: none;*/
 }
 
 #contactAddResult{
