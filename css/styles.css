@@ -169,7 +169,7 @@ td > .iconButtons > img {
 .buttons:hover{
     background-color: #00d5124f;
     color: #306e2b;
-    opacity: 50%;
+    /*opacity: 50%;*/
 }
 
 #loginName
