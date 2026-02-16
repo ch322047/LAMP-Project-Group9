@@ -632,6 +632,8 @@ function revealAddContactMenu() {
 	document.getElementById("accessUIDiv").setAttribute("inert","");
 	document.getElementById("loggedInDiv").setAttribute("inert","");
 
+	// set focus to first field in the window (first name box)
+	document.getElementById("fNameText").focus();
 	
 	// set modifyId to null
 	modifyId = null;
@@ -653,6 +655,9 @@ function hideAddContactMenu() {
 	// add main page to focus path
 	document.getElementById("accessUIDiv").removeAttribute("inert");
 	document.getElementById("loggedInDiv").removeAttribute("inert");
+
+	// set focus to search bar
+	document.getElementById("searchText").focus();
 }
 
 
