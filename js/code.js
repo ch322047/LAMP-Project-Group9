@@ -8,7 +8,7 @@ let lastName = "";
 /* pageLength describes how many entries can be displayed on one page
 This is a variable instead of a constant as users may be allowed to modify preferences in a "later version".
 */
-let pageLength = 2;
+let pageLength = 5;
 let pages = 1; // how many pages to show
 let currentPage = 1; // current viewed page
 
