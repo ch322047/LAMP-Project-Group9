@@ -535,6 +535,7 @@ function updatePage() {
 	for (let i = 0; i < maxDisplay; i++)
 	{
 		let entry = jsonObjectResult.results[i + (currentPage-1)*pageLength];
+		if (entry == null) break;
 
 		tableHTML += `
 			<tr>
