@@ -532,9 +532,9 @@ function updatePage() {
 	`;
 	
 	// Create the chart
-	for (let i = currentPage-1; i < currentPage*maxDisplay; i++)
+	for (let i = 0; i < maxDisplay; i++)
 	{
-		let entry = jsonObjectResult.results[i];
+		let entry = jsonObjectResult.results[i + (currentPage-1)*pageLength];
 
 		tableHTML += `
 			<tr>
