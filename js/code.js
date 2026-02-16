@@ -468,16 +468,17 @@ function searchContact()
 					pages = Math.ceil(jsonObjectResult.results.length / pageLength); // get amount of pages
 					currentPage = 1; // return to page 1
 
-					updatePage();
 
 					document.getElementById("contactSearchResult").innerHTML =
-						"Contact(s) have been retrieved";
+						`Found ${jsonObjectResult.results.length} contacts`;
 				}
 				else
 				{
 					document.getElementById("contactSearchResult").innerHTML =
 						"No matching contacts found";
 				}
+
+				updatePage();
 
 			}
 		};
