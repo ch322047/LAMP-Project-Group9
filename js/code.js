@@ -12,6 +12,9 @@ let pageLength = 2;
 let pages = 1; // how many pages to show
 let currentPage = 1; // current viewed page
 
+// JSON contacts contents
+let jsonObjectResult = null;
+
 // If the user is modifying an existing contact, modifyId will equal that contact's Id.
 // Otherwise, modifyId will be null (adds a new contact with given information)
 let modifyId = null;
@@ -471,9 +474,9 @@ function searchContact()
 		{
 			if (this.readyState == 4 && this.status == 200)
 			{
-				let jsonObject = JSON.parse(xhr.responseText);
+				let jsonObjectResult = JSON.parse(xhr.responseText);
 
-				if (jsonObject.results && jsonObject.results.length > 0)
+				if (jsonObjectResult.results && jsonObjectResult.results.length > 0)
 				{
 					// Start table
 					tableHTML = `
@@ -492,7 +495,8 @@ function searchContact()
 					currentPage = 1; // return to page 1
 
 					updatePage();
-					
+
+					/*
 					// Only display contacts up to pageLength
 					let maxDisplay = Math.min(pageLength, jsonObject.results.length);
 
@@ -532,6 +536,8 @@ function searchContact()
 					// End table
 					tableHTML += "</table>";
 
+					*/
+
 					document.getElementById("contactSearchResult").innerHTML =
 						"Contact(s) have been retrieved";
 				}
@@ -562,6 +568,45 @@ function updatePage() {
 
 	// update page label
 	document.getElementById("pageLabel").innerHTML = `Page ${currentPage} of ${pages}`;
+
+	// Only display contacts up to pageLength
+	let maxDisplay = Math.min(pageLength, jsonObject.results.length);
+
+	// Create the chart
+	for (let i = 0; i < maxDisplay; i++)
+	{
+		let entry = jsonObjectResult.results[i];
+
+		tableHTML += `
+			<tr>
+				<td>${entry.FirstName}</td>
+				<td>${entry.LastName}</td>
+				<td>${entry.Phone}</td>
+				<td>${entry.Email}</td>
+				<td>
+					<button
+					type="button"
+					class="buttons iconButtons"    
+					onclick="editContact(${entry.ContactId},'${entry.FirstName}','${entry.LastName}','${entry.Phone}','${entry.Email}')">
+					<img src="images/svg/edit-3.svg" alt="Edit">
+					</button>
+				</td>
+				
+				<td>
+					<button
+					type="button"
+					class="buttons iconButtons"    
+					onclick="deleteContact(${entry.ContactId})">
+					<img src="images/svg/trash-2.svg" alt="Delete">
+					</button>
+				</td>
+
+			</tr>
+		`;
+	}
+
+	// End table
+	tableHTML += "</table>";
 	
 }
 
@@ -598,6 +643,9 @@ function editContact(ContactId, FirstName, LastName, Phone, Email){
 	
 	// set modifyId to ContactId of the selected contact
 	modifyId = ContactId;
+
+	// Change submit button text
+	document.getElementById("submitContactButton").innerHTML = "Submit Changes";
 	
 	// Fill in the contact fields with the existing contact information
 	document.getElementById("fNameText").value = FirstName;
@@ -621,6 +669,9 @@ function revealAddContactMenu() {
 	
 	// set modifyId to null
 	modifyId = null;
+
+	// Change submit button text
+	document.getElementById("submitContactButton").innerHTML = "Add Contact";
 
 	// wipe fields
 	document.getElementById("fNameText").value = "";
