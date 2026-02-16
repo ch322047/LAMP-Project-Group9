@@ -409,8 +409,8 @@ function addContact()
 					setTimeout(function() {
 						document.getElementById("contactAddResult").innerHTML = "";
 					}, 3000);
-					//searchContact(); // update table
-					updatePage(); // update table
+					searchContact(); // update table
+					//updatePage(); // update table
 					hideAddContactMenu(); // close menu
 				}
 			};
@@ -439,8 +439,8 @@ function addContact()
 					setTimeout(function() {
 						document.getElementById("contactAddResult").innerHTML = "";
 					}, 3000);
-					//searchContact(); // update table
-					updatePage(); // update table
+					searchContact(); // update table
+					//updatePage(); // update table
 					hideAddContactMenu(); // close menu
 				}
 			};
@@ -480,67 +480,11 @@ function searchContact()
 
 				if (jsonObjectResult.results && jsonObjectResult.results.length > 0)
 				{
-					/*
-					// Start table
-					tableHTML = `
-						<table border="1" cellpadding="5" cellspacing="0">
-							<tr>
-								<th>First Name</th>
-								<th>Last Name</th>
-								<th>Phone</th>
-								<th>Email</th>
-								<th>Edit</th>
-								<th>Delete</th>
-							</tr>
-					`;
-					*/
 
 					pages = Math.ceil(jsonObjectResult.results.length / pageLength); // get amount of pages
 					currentPage = 1; // return to page 1
 
 					updatePage();
-
-					/*
-					// Only display contacts up to pageLength
-					let maxDisplay = Math.min(pageLength, jsonObject.results.length);
-
-					// Create the chart
-					for (let i = 0; i < maxDisplay; i++)
-					{
-						let entry = jsonObject.results[i];
-
-						tableHTML += `
-							<tr>
-								<td>${entry.FirstName}</td>
-								<td>${entry.LastName}</td>
-								<td>${entry.Phone}</td>
-								<td>${entry.Email}</td>
-								<td>
-  									<button
-									type="button"
-    								class="buttons iconButtons"    
-									onclick="editContact(${entry.ContactId},'${entry.FirstName}','${entry.LastName}','${entry.Phone}','${entry.Email}')">
-									<img src="images/svg/edit-3.svg" alt="Edit">
-  									</button>
-								</td>
-								
-								<td>
-  									<button
-									type="button"
-    								class="buttons iconButtons"    
-									onclick="deleteContact(${entry.ContactId})">
-									<img src="images/svg/trash-2.svg" alt="Delete">
-  									</button>
-								</td>
-
-							</tr>
-						`;
-					}
-
-					// End table
-					tableHTML += "</table>";
-
-					*/
 
 					document.getElementById("contactSearchResult").innerHTML =
 						"Contact(s) have been retrieved";
@@ -551,8 +495,6 @@ function searchContact()
 						"No matching contacts found";
 				}
 
-				// Put table on the page
-				//document.getElementsByTagName("p")[0].innerHTML = tableHTML;
 			}
 		};
 
@@ -590,7 +532,7 @@ function updatePage() {
 	`;
 	
 	// Create the chart
-	for (let i = 0; i < maxDisplay; i++)
+	for (let i = currentPage-1; i < (currentPage-1)*maxDisplay; i++)
 	{
 		let entry = jsonObjectResult.results[i];
 
@@ -738,8 +680,8 @@ function deleteContact(ContactId){
 
 				if (jsonObject.success === true)
 				{
-					updatePage();
-					//searchContact();
+					//updatePage();
+					searchContact();
 				}
 				else
 				{
