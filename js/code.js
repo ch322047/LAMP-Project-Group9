@@ -324,7 +324,7 @@ function readCookie()
 	}
 	else
 	{
-//		document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
+		document.getElementById("userName").innerHTML = `${firstName} ${lastName}`;
 	}
 }
 
@@ -337,6 +337,7 @@ function doLogout()
 	document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
 	window.location.href = "index.html";
 }
+
 
 // addContact will either add a contact with the given information or modify an existing contact to use the given information
 // based on the value of modifyId.
