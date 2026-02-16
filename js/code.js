@@ -44,7 +44,7 @@ function doLogin()
 	let errorMessages = [];
 
 	// Validate username (min 8 characters, max 20 characters)
-	if (/^[ ]*/.test(login) || login.length > 20) {
+	if (/^[ ]+/.test(login) || login.length > 20) {
 		loginBox.classList.add("invalidField");
 		fieldsValid = false;
         if (login == "") {
@@ -57,7 +57,7 @@ function doLogin()
 	}
 
 	// validate password
-	if (/^[ ]*/.test(password) || password.length > 20) {
+	if (/^[ ]+/.test(password) || password.length > 20) {
 		passwordBox.classList.add("invalidField");
 		fieldsValid = false;
         if (password == "") {
@@ -344,7 +344,7 @@ function addContact()
 	fieldsValid = true;
 	
 	// validate first name (last name should be optional)
-	if (/^[ ]*/.test(fName)) {
+	if (/^[ ]+/.test(fName)) {
 		fNameBox.classList.add("invalidField");
 		fieldsValid = false;
 	} else {
