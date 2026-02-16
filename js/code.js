@@ -490,7 +490,8 @@ function searchContact()
 
 					pages = Math.ceil(jsonObject.results.length / pageLength); // get amount of pages
 					currentPage = 1; // return to page 1
-					document.getElementById("pageLabel").innerHTML = `Page ${currentPage} of ${pages}`;
+
+					updatePage();
 					
 					// Only display contacts up to pageLength
 					let maxDisplay = Math.min(pageLength, jsonObject.results.length);
@@ -552,6 +553,40 @@ function searchContact()
 		document.getElementById("contactSearchResult").innerHTML = err.message;
 	}
 }
+
+
+/* Page Functions
+These functions show the current page and manage navigating them
+*/
+function updatePage() {
+
+	// update page label
+	document.getElementById("pageLabel").innerHTML = `Page ${currentPage} of ${pages}`;
+	
+}
+
+// move back a page
+function pagePrev() {
+	if (currentPage <= 1) return; // do not move out of bounds
+
+	// decrement current page
+	currentPage--;
+	
+	// update the page
+	updatePage();
+}
+
+// move forwards a page
+function pageNext() {
+	if (currentPage >= pages) return; // do not move out of bounds
+
+	// increment the page
+	currentPage++;
+	
+	// update the page
+	updatePage();
+}
+
 
 // Edit a contact, called from the edit button next to each entry
 // This function will NOT edit a contact, it will simply fill in the add contact fields with the contact's information.
