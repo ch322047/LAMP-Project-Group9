@@ -503,7 +503,7 @@ function updatePage() {
 	// if no content exists, do not create the table and hide page buttons
 	if(jsonObjectResult.results.length == 0) {
 		document.getElementById("pagesDiv").hidden = true;
-		document.getElementsById("contactList").innerHTML = ``;
+		document.getElementById("contactList").innerHTML = ``;
 		return;
 	}
 	// reveal page buttons if hidden
@@ -563,7 +563,7 @@ function updatePage() {
 	tableHTML += "</table>";
 
 	// Put table on the page
-	document.getElementsById("contactList").innerHTML = tableHTML;
+	document.getElementById("contactList").innerHTML = tableHTML;
 	
 }
 
