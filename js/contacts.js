@@ -14,7 +14,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 	document.getElementById("searchText").addEventListener('keyup', function (k) {
 		if (k.key === 'Enter' || k.keyCode === 13) { /* keyCode is depricated, allows support for older browsers */
 			// call searchContact from code.js
-			searchContact();
+			searchQuery();
 		}
 	});
 });
