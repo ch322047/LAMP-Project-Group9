@@ -532,7 +532,7 @@ function updatePage() {
 	`;
 	
 	// Create the chart
-	for (let i = currentPage-1; i < (currentPage-1)*maxDisplay; i++)
+	for (let i = currentPage-1; i < currentPage*maxDisplay; i++)
 	{
 		let entry = jsonObjectResult.results[i];
 
