@@ -70,7 +70,7 @@ picture {
 
 #accessUIDiv
 {
-    font-size: 1.8vw;
+    font-size: 1.4vw;
     width: 70%;
     margin: 0 auto;      /* ← THIS */
     padding: 2vw;
@@ -122,7 +122,7 @@ picture {
 
 
 table {
-	font-size: 1.3vw;
+	font-size: 1.2vw;
 	width: 100%;
 	background-color: white;
 	color: black;
@@ -130,6 +130,10 @@ table {
 th{
 	color: white;
 	background-color: DarkSlateGray;
+	padding: 0.2vw;
+}
+td {
+	padding: 0.2vw;
 }
 tr:nth-child(odd) {
 	background-color: Gainsboro;
@@ -171,9 +175,9 @@ tr:nth-child(odd) {
 
 /* edit & delete buttons */
 td > .iconButtons > img {
-    width: 1.3vw;
-    height: 1.3vw;
-	padding: 0.2vw;
+    width: 1.2vw;
+    height: 1.2vw;
+	padding: 0.1vw;
 }
 
 
