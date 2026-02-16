@@ -409,7 +409,8 @@ function addContact()
 					setTimeout(function() {
 						document.getElementById("contactAddResult").innerHTML = "";
 					}, 3000);
-					searchContact(); // update table
+					//searchContact(); // update table
+					updatePage(); // update table
 					hideAddContactMenu(); // close menu
 				}
 			};
@@ -438,7 +439,8 @@ function addContact()
 					setTimeout(function() {
 						document.getElementById("contactAddResult").innerHTML = "";
 					}, 3000);
-					searchContact(); // update table
+					//searchContact(); // update table
+					updatePage(); // update table
 					hideAddContactMenu(); // close menu
 				}
 			};
@@ -478,6 +480,7 @@ function searchContact()
 
 				if (jsonObjectResult.results && jsonObjectResult.results.length > 0)
 				{
+					/*
 					// Start table
 					tableHTML = `
 						<table border="1" cellpadding="5" cellspacing="0">
@@ -490,6 +493,7 @@ function searchContact()
 								<th>Delete</th>
 							</tr>
 					`;
+					*/
 
 					pages = Math.ceil(jsonObjectResult.results.length / pageLength); // get amount of pages
 					currentPage = 1; // return to page 1
@@ -572,6 +576,19 @@ function updatePage() {
 	// Only display contacts up to pageLength
 	let maxDisplay = Math.min(pageLength, jsonObjectResult.results.length);
 
+	// Start table
+	tableHTML = `
+		<table border="1" cellpadding="5" cellspacing="0">
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Phone</th>
+				<th>Email</th>
+				<th>Edit</th>
+				<th>Delete</th>
+			</tr>
+	`;
+	
 	// Create the chart
 	for (let i = 0; i < maxDisplay; i++)
 	{
