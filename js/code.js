@@ -570,7 +570,7 @@ function updatePage() {
 	document.getElementById("pageLabel").innerHTML = `Page ${currentPage} of ${pages}`;
 
 	// Only display contacts up to pageLength
-	let maxDisplay = Math.min(pageLength, jsonObject.results.length);
+	let maxDisplay = Math.min(pageLength, jsonObjectResult.results.length);
 
 	// Create the chart
 	for (let i = 0; i < maxDisplay; i++)
@@ -718,7 +718,8 @@ function deleteContact(ContactId){
 
 				if (jsonObject.success === true)
 				{
-					searchContact();
+					updatePage();
+					//searchContact();
 				}
 				else
 				{
