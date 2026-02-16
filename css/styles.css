@@ -59,7 +59,7 @@ picture {
 
 #loggedInDiv
 {
-    font-size: 2.3vw;
+    font-size: 1.8vw;
     width: 70%;
     margin: 0 auto;      /* ← THIS */
     padding: 0.5vw 2vw 0 2vw;
@@ -138,7 +138,7 @@ tr:nth-child(odd) {
 
 .buttons {
     font-weight: 500;
-    font-size: 2vw;
+    font-size: 1.8vw;
     border-radius: 50px;
     width: 50%;
     background-color: #606C38;
@@ -162,8 +162,8 @@ tr:nth-child(odd) {
 /* Using > targets the children of the class and the type after 
     filters which type of children are we styling */
 .iconButtons > img{
-	width: 2.3vw;
-	height: 2.3vw;
+	width: 1.8vw;
+	height: 1.8vw;
 	/*width: clamp(28px, 3.2vw, 48px);
 	height: clamp(22px, 2.3vw, 40px);*/
 	object-fit: contain;
@@ -202,7 +202,7 @@ td > .iconButtons > img {
 }
 
 ::placeholder { /* text field hints */
-	color: LightGray;
+	/*color: LightGray;*/
 }
 
 input[type="text"],input[type="password"],input[type="tel"]
