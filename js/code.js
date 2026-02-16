@@ -564,6 +564,10 @@ function revealAddContactMenu() {
 
 	// reveal
 	document.getElementById("windowBG").hidden=false;
+
+	// remove main page from focus path
+	document.getElementById("main").setAttribute("inert","");
+
 	
 	// set modifyId to null
 	modifyId = null;
@@ -578,6 +582,9 @@ function revealAddContactMenu() {
 // hide the contactFieldsBox
 function hideAddContactMenu() {
 	document.getElementById("windowBG").hidden=true;
+
+	// add main page to focus path
+	document.getElementById("main").removeAttribute("inert");
 }
 
 
