@@ -44,7 +44,7 @@ function doLogin()
 	let errorMessages = [];
 
 	// Validate username (min 8 characters, max 20 characters)
-	if (/^[ ]+/.test(login) || login.length > 20) {
+	if (/^\S/.test(login) || /\\/.test(login) || login.length > 20) {
 		loginBox.classList.add("invalidField");
 		fieldsValid = false;
         if (login == "") {
@@ -57,7 +57,7 @@ function doLogin()
 	}
 
 	// validate password
-	if (/^[ ]+/.test(password) || password.length > 20) {
+	if (/^\S/.test(password) || /\\/.test(password) || password.length > 20) {
 		passwordBox.classList.add("invalidField");
 		fieldsValid = false;
         if (password == "") {
@@ -147,9 +147,9 @@ function doRegister(){
     let fieldsValid = true;
     let errorMessages = [];
 
-    // Copied logic from login validartion.
+    // Copied logic from login validation.
     // Validate first name only, 1-20 characters
-    if (fName == "" || !/^[A-Za-z]{1,20}$/.test(fName)) {
+    if (fName == "" || !/^[A-Za-z]{1,20}$/.test(fName) || /\\/.test(fName)) {
         fNameBox.classList.add("invalidField");
         fieldsValid = false;
         if (fName == "") {
@@ -158,13 +158,15 @@ function doRegister(){
 			errorMessages.push("First name must contain only letters");
 		} else if (fName.length > 20) {
 			errorMessages.push("First name must be 20 characters or less");
+		} else if (/\\/.test(fName)) {
+			errorMessages.push("No fields may contain a \ charachter");
 		}
     } else {
         fNameBox.classList.remove("invalidField");
     }
     
     // Validate last name letters only, 1-20 characters
-    if (lName == "" || !/^[A-Za-z]{1,20}$/.test(lName)) {
+    if (lName == "" || !/^[A-Za-z]{1,20}$/.test(lName) || /\\/.test(lName)) {
         lNameBox.classList.add("invalidField");
         fieldsValid = false;
         if (lName == "") {
@@ -173,32 +175,38 @@ function doRegister(){
 			errorMessages.push("Last name must contain only letters");
 		} else if (lName.length > 20) {
 			errorMessages.push("Last name must be 20 characters or less");
+		} else if (/\\/.test(lName)) {
+			errorMessages.push("No fields may contain a \ charachter");
 		}
     } else {
         lNameBox.classList.remove("invalidField");
     }
     
     // Validate username not empty and max 20 chars
-    if (login == "" || login.length > 20) {
+    if (login == "" || login.length > 20 || /\\/.test(login)) {
         loginBox.classList.add("invalidField");
         fieldsValid = false;
         if (login == "" ) {
 			errorMessages.push("Username is required");
 		} else if (login.length > 20) {
 			errorMessages.push("Username must be 20 characters or less");
+		} else if (/\\/.test(login)) {
+			errorMessages.push("No fields may contain a \ charachter");
 		}
     } else {
         loginBox.classList.remove("invalidField");
     }
     
     // Validate password 8 to 20 chars
-    if (password.length < 7 || password.length > 20) {
+    if (password.length < 7 || password.length > 20 || /\\/.test(password)) {
         passwordBox.classList.add("invalidField");
         fieldsValid = false;
         if (password.length < 7) {
 			errorMessages.push("Password must be at least 7 characters");
 		} else if (password.length > 20) {
 			errorMessages.push("Password must be 20 characters or less");
+		} else if (/\\/.test(password)) {
+			errorMessages.push("No fields may contain a \ charachter");
 		}
     } else {
         passwordBox.classList.remove("invalidField");
@@ -344,11 +352,19 @@ function addContact()
 	fieldsValid = true;
 	
 	// validate first name (last name should be optional)
-	if (/^[ ]+/.test(fName)) {
+	if (/^\S/.test(fName) || /\\/.test(fName)) {
 		fNameBox.classList.add("invalidField");
 		fieldsValid = false;
 	} else {
 		fNameBox.classList.remove("invalidField");
+	}
+
+	// validate last name (must NOT contain a `\`)
+	if (/\\/.test(lName)) {
+		LNameBox.classList.add("invalidField");
+		fieldsValid = false;
+	} else {
+		LNameBox.classList.remove("invalidField");
 	}
 
 	// validate phone
@@ -360,7 +376,7 @@ function addContact()
 	}
 
 	// validate email
-	if (!(/^[^@\s]+@[^@\s]+\.[^@\s]+$/i.test(newEmail))) {
+	if (!(/^[^@\s]+@[^@\s]+\.[^@\s]+$/i.test(newEmail)) || /\\/.test(newEmail)) {
 		emailBox.classList.add("invalidField");
 		fieldsValid = false;
 	} else {
