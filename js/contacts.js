@@ -6,10 +6,14 @@
 Found how to do this online!
 https://stackoverflow.com/questions/7060750/detect-the-enter-key-in-a-text-input-field
 */
-// Detects enter press on username field. Sends focus to the password box
-document.getElementById("searchText").addEventListener('keyup', function (k) {
-	if (k.key === 'Enter' || k.keyCode === 13) { /* keyCode is depricated, allows support for older browsers */
-    // call searchContact from code.js
-		searchContact();
-	}
-});
+
+// Only bind events once content is loaded
+function contactsBindEvents() {
+	// Detects enter press on search bar. Acts the same as pressing the search button
+	document.getElementById("searchText").addEventListener('keyup', function (k) {
+		if (k.key === 'Enter' || k.keyCode === 13) { /* keyCode is depricated, allows support for older browsers */
+	    	// call searchContact from code.js
+			searchContact();
+		}
+	});
+}
