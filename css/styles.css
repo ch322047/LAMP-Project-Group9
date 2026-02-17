@@ -91,7 +91,7 @@ picture {
 	position: fixed;
 	font-size: 2vw;
     padding: 2vw;
-    background-color: #283618;
+    background-color: #BC6C25;
     text-align: center; /* optional but recommended */
 	border-radius: 2vw; /* round corners */
 	top: 5vw;
@@ -192,7 +192,11 @@ td > .iconButtons > img {
 .buttons:hover{
     background-color: #00d512;
     color: #306e2b;
-    /*opacity: 50%;*/
+}
+
+.deleteButton:hover{
+    background-color: red;
+    color: white;
 }
 
 #loginName
