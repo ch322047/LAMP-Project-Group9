@@ -580,7 +580,7 @@ function updatePage() {
 				<td>
 					<button
 					type="button"
-					class="buttons iconButtons"    
+					class="buttons iconButtons deleteButton"    
 					onclick="deleteContact(${entry.ContactId})">
 					<img src="images/svg/trash-2.svg" alt="Delete">
 					</button>
