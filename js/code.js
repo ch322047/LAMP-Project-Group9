@@ -24,6 +24,9 @@ let modifyId = null;
 window.addEventListener('resize', function() {
     setScreenMode();
 });
+window.addEventListener('load', function() {
+    setScreenMode();
+});
 
 // set to mobile based on screen dimensions
 function setScreenMode(){
