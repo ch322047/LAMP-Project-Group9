@@ -321,3 +321,17 @@ select{
 {
 	border-color: green;
 }
+
+/* Mobile styling
+Kicks in when the screen height is larger than the screen width.
+Taken from a project I made last semester (Fall 2025) - Terry Dyer
+*/
+html.mobile {
+	#title {
+		font-size: 5vw;
+	}
+	#accessUIDiv {
+		width: 90%;
+		font-size: 2vw;
+	}
+}
