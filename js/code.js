@@ -545,7 +545,7 @@ function updatePage() {
 
 	// Start table
 	tableHTML = `
-		<table border="1" cellpadding="5" cellspacing="0">
+		<table>
 			<tr>
 				<th>First Name</th>
 				<th>Last Name</th>
