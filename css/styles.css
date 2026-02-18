@@ -165,6 +165,7 @@ tr:nth-child(odd) {
     display: block;
     margin-left: auto;
     margin-right: auto;
+	text-wrap: nowrap;
 }
 
 .iconButtons{
@@ -218,14 +219,6 @@ td > .iconButtons > img {
 	font-size: 1em;
 }
 
-#loginName
-{
-	font-size: 2vw;
-}
-#loginPassword
-{
-	font-size: 2vw;
-}
 #searchText
 {
 	width:100%;
@@ -330,12 +323,8 @@ body.mobile {
 	#title {
 		font-size: 5vw;
 	}
-	#loginDiv{
-		font-size: 3vw;
-		width: 90%;
-	}
-	#registerDiv{
-		font-size: 3vw;
+	#loginDiv,#registerDiv{
+		font-size: 5vw;
 		width: 90%;
 	}
 	#loggedInDiv{
@@ -346,6 +335,9 @@ body.mobile {
 		width: 90%;
 		font-size: 2vw;
 	}
+	#contactFieldsBox{
+		font-size: 4vw;
+	}
 	#logo {
 		width: 15vw;
 	}
@@ -353,7 +345,7 @@ body.mobile {
 		width: 9vw;
 	}
 	.buttons {
-		font-size: 3vw;
+		font-size: 5vw;
 		border-width: 0.4vw;
 	}
 	input[type="text"],input[type="password"],input[type="tel"],#searchText {
