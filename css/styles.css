@@ -330,8 +330,56 @@ body.mobile {
 	#title {
 		font-size: 5vw;
 	}
+	#loginDiv{
+		font-size: 3vw;
+		width: 90%;
+	}
+	#registerDiv{
+		font-size: 3vw;
+		width: 90%;
+	}
+	#loggedInDiv{
+		font-size: 3vw;
+		width: 90%;
+	}
 	#accessUIDiv {
 		width: 90%;
 		font-size: 2vw;
 	}
+	#logo {
+		width: 15vw;
+	}
+	#logoSmall {
+		width: 9vw;
+	}
+	.buttons {
+		font-size: 3vw;
+		border-width: 0.4vw;
+	}
+	input[type="text"],input[type="password"],input[type="tel"],#searchText {
+		font-size:4vw;
+	}
+	.iconButtons > img{
+		width: 5vw;
+		height: 5vw;
+	}
+	td > .iconButtons > img{
+		width: 4vw;
+		height: 4vw;
+		padding: 0.3vw;
+	}
+	.invalidField{
+		background-size: 3vw;
+	}
+	table {
+		font-size: 2.5vw;
+	}
+	div#pagesDiv {
+		width: 70%;
+		font-size: 2.6vw;
+	}
+	#contactSearchResult,#contactAddResult{
+		font-size: 2.5vw;
+	}
+	
 }
