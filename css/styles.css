@@ -125,6 +125,7 @@ div#pagesDiv {
 	width: 50%;
 	justify-self: center;
 	font-size: 1.2vw;
+	margin: auto;
 }
 
 table {
