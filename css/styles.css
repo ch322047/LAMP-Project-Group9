@@ -132,6 +132,8 @@ table {
 	width: 100%;
 	background-color: white;
 	color: black;
+	border: 2vw solid black;
+	border-collapse: collapse;
 }
 th{
 	color: white;
@@ -140,6 +142,7 @@ th{
 }
 td {
 	padding: 0.2vw;
+	border: 0.1vw solid darkgray;
 }
 tr:nth-child(odd) {
 	background-color: Gainsboro;
