@@ -326,7 +326,7 @@ select{
 Kicks in when the screen height is larger than the screen width.
 Taken from a project I made last semester (Fall 2025) - Terry Dyer
 */
-html.mobile {
+body.mobile {
 	#title {
 		font-size: 5vw;
 	}
