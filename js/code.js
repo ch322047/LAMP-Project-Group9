@@ -19,6 +19,24 @@ let jsonObjectResult = null;
 // Otherwise, modifyId will be null (adds a new contact with given information)
 let modifyId = null;
 
+
+/* Checks the screen dimensions and determines what layout to use. Taken from a project of mine last semester (Fall 2025) - Terry Dyer*/
+window.addEventListener('resize', function() {
+    setScreenMode();
+});
+
+// set to mobile based on screen dimensions
+function setScreenMode(){
+    let doc = document.getElementById("html")
+    if(window.innerWidth/window.innerHeight < 1) {
+        doc.classList.add("mobile");
+    } else{
+        doc.classList.remove("mobile");
+    }
+}
+
+
+
 function doLogin()
 {
 	userId = 0;
