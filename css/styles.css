@@ -204,6 +204,8 @@ td > .iconButtons > img {
 .deleteButton:hover{
     background-color: red;
     color: white;
+}
+.deleteButton:hover > img {
 	filter: invert(100%) brightness(100%); /* Trash icon is white */
 }
 
@@ -268,6 +270,11 @@ input[type="text"],input[type="password"],input[type="tel"]
 
 #logoutButton{
     width: 20%;
+}
+
+/* space text and icon */
+#logoutButton > *{
+    margin: 0 0 0 1vw;
 }
 
 select{
