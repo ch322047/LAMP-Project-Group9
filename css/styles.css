@@ -323,12 +323,8 @@ body.mobile {
 	#title {
 		font-size: 5vw;
 	}
-	#loginDiv,#registerDiv{
+	#loginDiv,#registerDiv,#loggedInDiv{
 		font-size: 5vw;
-		width: 90%;
-	}
-	#loggedInDiv{
-		font-size: 3vw;
 		width: 90%;
 	}
 	#accessUIDiv {
@@ -359,6 +355,9 @@ body.mobile {
 		width: 4vw;
 		height: 4vw;
 		padding: 0.3vw;
+	}
+	#logoutButton{
+    	width: 40%;
 	}
 	.invalidField{
 		background-size: 3vw;
