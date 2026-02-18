@@ -27,7 +27,7 @@ window.addEventListener('resize', function() {
 
 // set to mobile based on screen dimensions
 function setScreenMode(){
-    let doc = document.getElementById("html")
+    let doc = document.getElementsByTagName("body")[0];
     if(window.innerWidth/window.innerHeight < 1) {
         doc.classList.add("mobile");
     } else{
